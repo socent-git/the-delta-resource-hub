@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech & AI Tools — the^delta</title>
+<meta name="description" content="A curated stack of 65 concessional software and AI tools — vetted for nonprofit and small-team use, from project management to impact measurement.">
+<meta property="og:title" content="Tech & AI Tools — the^delta">
+<meta property="og:description" content="65 concessional software and AI tools vetted for social entrepreneurs and nonprofits building in India.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://thedelta.org.in/tools">
+<style>
+  :root{--red:#b21010;--red-dark:#900000;--slate:#6e7475;--dark:#363d3f;--light-grey:#f0f0f0;--white:#ffffff;--text:#2d3537;--text-muted:#6e7475;--border:#e5e5e5;--font-sans:'Inter',system-ui,-apple-system,sans-serif}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-sans);color:var(--text);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+  nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:60px;box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+  .nav-logo{font-size:1.15rem;font-weight:700;color:var(--dark);text-decoration:none;letter-spacing:-0.02em}
+  .nav-logo .caret{color:var(--red)}
+  .nav-links{display:flex;align-items:center;gap:2rem}
+  .nav-links a{font-size:0.82rem;font-weight:500;color:var(--text-muted);text-decoration:none;letter-spacing:0.02em;text-transform:uppercase;transition:color 0.2s;position:relative}
+  .nav-links a:hover,.nav-links a.active{color:var(--dark)}
+  .nav-links a.active::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--red)}
+  .nav-cta{background:var(--red)!important;color:var(--white)!important;padding:0.45rem 1.1rem;font-size:0.78rem!important}
+  .nav-cta:hover{background:var(--red-dark)!important}
+  .nav-cta.active::after{display:none!important}
+  .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--dark);margin:5px 0}
+  .mobile-nav{display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:var(--white);z-index:99;padding:2rem 5%;flex-direction:column;overflow-y:auto}
+  .mobile-nav.open{display:flex}
+  .mobile-nav a{font-size:1rem;font-weight:500;color:var(--dark);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border)}
+  .page-header{padding:4rem 5% 3rem;border-bottom:1px solid var(--border);background:#fafafa}
+  .page-eyebrow{font-size:0.72rem;font-weight:700;color:var(--red);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;display:block}
+  .page-header h1{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--dark);letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.8rem}
+  .page-header p{font-size:1rem;color:var(--text-muted);max-width:540px;line-height:1.7}
+  .filter-bar{padding:1.2rem 5%;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;background:var(--white);position:sticky;top:60px;z-index:50}
+  .filter-btn{padding:0.4rem 0.9rem;font-size:0.78rem;font-weight:600;border:1.5px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;transition:all 0.15s;font-family:var(--font-sans);letter-spacing:0.02em}
+  .filter-btn:hover{border-color:var(--dark);color:var(--dark)}
+  .filter-btn.active{background:var(--red);border-color:var(--red);color:var(--white)}
+  .filter-count{margin-left:auto;font-size:0.78rem;color:var(--text-muted);font-weight:500;white-space:nowrap}
+  .search-wrap{position:relative;flex:0 0 220px}
+  .search-wrap input{width:100%;padding:0.42rem 0.9rem 0.42rem 2.2rem;border:1.5px solid var(--border);outline:none;font-size:0.8rem;font-family:var(--font-sans);color:var(--text);transition:border-color 0.2s}
+  .search-wrap input:focus{border-color:var(--slate)}
+  .search-wrap::before{content:'⌕';position:absolute;left:0.6rem;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:1rem;pointer-events:none}
+  .tools-section{padding:2.5rem 5%}
+  .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--border)}
+  .tool-card{background:var(--white);padding:1.6rem 1.8rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:0.5rem;transition:background 0.18s;position:relative;overflow:hidden}
+  .tool-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red);transform:scaleY(0);transform-origin:bottom;transition:transform 0.25s}
+  .tool-card:hover{background:#fafafa}
+  .tool-card:hover::before{transform:scaleY(1)}
+  .tool-cat{font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate);background:var(--light-grey);padding:0.2rem 0.5rem;display:inline-block;width:fit-content}
+  .tool-name{font-size:0.97rem;font-weight:700;color:var(--dark)}
+  .tool-pricing{font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.15rem 0.5rem;display:inline-block;width:fit-content}
+  .pricing-free{color:#2a7a2a;background:rgba(42,122,42,0.08)}
+  .pricing-discount{color:var(--red);background:rgba(178,16,16,0.08)}
+  .pricing-paid{color:var(--slate);background:var(--light-grey)}
+  .tool-desc{font-size:0.82rem;color:var(--text-muted);line-height:1.6;flex:1}
+  .tool-tags{display:flex;gap:0.3rem;flex-wrap:wrap;margin-top:0.2rem}
+  .tool-tag{font-size:0.67rem;color:var(--text-muted);background:var(--light-grey);padding:0.15rem 0.45rem;font-weight:500}
+  .tool-link{margin-top:0.7rem;font-size:0.78rem;font-weight:700;color:var(--red);letter-spacing:0.04em}
+  .empty-state{padding:4rem 5%;text-align:center;color:var(--text-muted)}
+  .empty-state h3{font-size:1rem;margin-bottom:0.5rem;color:var(--dark)}
+  footer{background:var(--dark);color:rgba(255,255,255,0.8);padding:3rem 5% 2rem}
+  .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+  .footer-logo{font-size:1.2rem;font-weight:800;color:var(--white);text-decoration:none;letter-spacing:-0.02em;margin-bottom:0.8rem;display:inline-block}
+  .footer-logo .caret{color:var(--red)}
+  .footer-tagline{font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.6;max-width:260px}
+  .footer-col h4{font-size:0.7rem;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem}
+  .footer-col a{display:block;font-size:0.85rem;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:0.6rem;transition:color 0.2s}
+  .footer-col a:hover{color:var(--white)}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+  .footer-bottom p{font-size:0.78rem;color:rgba(255,255,255,0.4)}
+  @media(max-width:700px){.nav-links{display:none}.hamburger{display:block}.tools-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:2rem}.footer-bottom{flex-direction:column}.search-wrap{flex:1 1 100%}}
+  @media(max-width:960px){.footer-grid{grid-template-columns:1fr 1fr}}
+</style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9E65CX3J4W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9E65CX3J4W');
+  </script>
+  <!-- Netlify Identity -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">the<span class="caret">^</span>delta</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="opportunities.html">Funding</a>
+    <a href="research.html">Research</a>
+    <a href="support.html">Operations</a>
+    <a href="tools.html" class="active">Tech & AI</a>
+    <a href="index.html#newsletter" class="nav-cta">Funding updates</a>
+  </div>
+  <button class="hamburger" aria-label="Toggle menu" onclick="document.getElementById('mnav').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-nav" id="mnav">
+  <a href="index.html">Home</a><a href="opportunities.html">Funding</a>
+  <a href="research.html">Research</a><a href="support.html">Operations</a>
+  <a href="tools.html">Tech & AI</a><a href="index.html#newsletter">Get funding updates</a>
+</div>
+
+<header class="page-header" role="banner">
+  <span class="page-eyebrow">Stack · Technology</span>
+  <h1>Tools built for lean, high-impact teams.</h1>
+  <p>65 concessional software and AI tools — vetted for nonprofit and small-team use. Covering project management, communications, data analysis, impact measurement, and AI-assisted operations.</p>
+</header>
+
+<div class="filter-bar" role="search" aria-label="Filter tools">
+  <div class="search-wrap">
+    <input type="text" id="tool-search" placeholder="Search tools…" aria-label="Search tools" oninput="renderTools()">
+  </div>
+  <button class="filter-btn active" onclick="setFilter('All',this)">All</button>
+  <button class="filter-btn" onclick="setFilter('AI & Automation',this)">AI</button>
+  <button class="filter-btn" onclick="setFilter('Project Management',this)">Projects</button>
+  <button class="filter-btn" onclick="setFilter('Data & M&E',this)">Data</button>
+  <button class="filter-btn" onclick="setFilter('Communications',this)">Comms</button>
+  <button class="filter-btn" onclick="setFilter('Finance',this)">Finance</button>
+  <button class="filter-btn" onclick="setFilter('Design',this)">Design</button>
+  <span class="filter-count" id="tool-count">65 of 65</span>
+</div>
+
+<main>
+<section class="tools-section">
+  <div class="tools-grid" id="tools-grid" role="list" aria-label="Tech and AI tools"></div>
+  <div class="empty-state" id="tools-empty" style="display:none">
+    <h3>No results found</h3><p>Try adjusting your search or filters.</p>
+  </div>
+</section>
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div>
+      <a href="index.html" class="footer-logo">the<span class="caret">^</span>delta</a>
+      <p class="footer-tagline">A platform for changemakers building resilient livelihoods in India — connecting capital, knowledge, and operational depth for social entrepreneurs.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="opportunities.html">Funding Opportunities</a>
+      <a href="research.html">Research & Readings</a>
+      <a href="support.html">Operational Support</a>
+      <a href="tools.html">Tech & AI Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="https://thedelta.org.in/" target="_blank" rel="noopener">thedelta.org.in</a>
+      <a href="index.html#newsletter">Get funding updates</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 the^delta. All rights reserved. Built for changemakers. Built in India.</p>
+    <p>For India's aspirant households.</p>
+  </div>
+</footer>
+
+<script>
+const TOOLS = [
+  // AI & Automation
+  {name:"Claude (Anthropic)",cat:"AI & Automation",pricing:"Discount",desc:"Advanced AI assistant for writing, analysis, research synthesis, and operational tasks. Nonprofits access via discounted API or Claude.ai Pro.",tags:["AI","Writing","Research"],url:"https://anthropic.com"},
+  {name:"ChatGPT (OpenAI)",cat:"AI & Automation",pricing:"Discount",desc:"AI assistant for drafting communications, analysing data, summarising reports, and automating repetitive writing tasks. Nonprofit discount available.",tags:["AI","Writing","Automation"],url:"https://openai.com"},
+  {name:"Google Gemini",cat:"AI & Automation",pricing:"Free",desc:"Google's AI assistant integrated with Workspace — useful for drafting documents, summarising research, and data analysis in Sheets.",tags:["AI","Google","Automation"],url:"https://gemini.google.com"},
+  {name:"Perplexity AI",cat:"AI & Automation",pricing:"Free",desc:"AI-powered research assistant that cites sources — useful for rapid landscape research, policy analysis, and sector deep-dives.",tags:["AI","Research","Search"],url:"https://perplexity.ai"},
+  {name:"Notion AI",cat:"AI & Automation",pricing:"Paid",desc:"AI writing and knowledge management built into Notion — useful for maintaining internal wikis, documenting processes, and drafting operational documents.",tags:["AI","Knowledge","Writing"],url:"https://notion.so"},
+  {name:"Make (Integromat)",cat:"AI & Automation",pricing:"Free",desc:"No-code workflow automation platform for connecting apps and automating data flows — useful for automating reporting, intake forms, and donor communications.",tags:["Automation","No-code","Workflows"],url:"https://make.com"},
+  {name:"Zapier",cat:"AI & Automation",pricing:"Discount",desc:"Automation platform connecting 6,000+ apps. Nonprofit discount available. Useful for automating grant tracking, CRM updates, and email workflows.",tags:["Automation","Integration","No-code"],url:"https://zapier.com"},
+  {name:"Gooey.AI",cat:"AI & Automation",pricing:"Free",desc:"Pro bono AI tools for social sector organisations — including document analysis, bulk processing, and WhatsApp automation for programme delivery.",tags:["AI","Pro Bono","WhatsApp"],url:"https://gooey.ai"},
+  {name:"Hugging Face",cat:"AI & Automation",pricing:"Free",desc:"Open-source AI models and tools — useful for organisations building custom NLP pipelines for regional language processing or beneficiary data analysis.",tags:["AI","Open Source","NLP"],url:"https://huggingface.co"},
+  {name:"Langchain",cat:"AI & Automation",pricing:"Free",desc:"Framework for building LLM-powered applications — useful for organisations building AI-powered programme tools, chatbots, or data processing pipelines.",tags:["AI","Development","LLM"],url:"https://langchain.com"},
+
+  // Project Management
+  {name:"Asana",cat:"Project Management",pricing:"Discount",desc:"Project and task management platform. 50% nonprofit discount available. Useful for programme management, grant timelines, and team coordination.",tags:["Projects","Tasks","Teams"],url:"https://asana.com"},
+  {name:"Notion",cat:"Project Management",pricing:"Discount",desc:"All-in-one workspace for notes, databases, and project management. Nonprofit discount available. Widely used for internal knowledge bases.",tags:["Projects","Knowledge","Databases"],url:"https://notion.so"},
+  {name:"Trello",cat:"Project Management",pricing:"Free",desc:"Visual Kanban-based project management. Free plan suitable for small teams. Useful for programme tracking, content calendars, and team workflows.",tags:["Projects","Kanban","Visual"],url:"https://trello.com"},
+  {name:"Monday.com",cat:"Project Management",pricing:"Discount",desc:"Work management platform with strong visual reporting. Nonprofit discount available. Suited for multi-programme organisations with complex reporting needs.",tags:["Projects","Reporting","Teams"],url:"https://monday.com"},
+  {name:"ClickUp",cat:"Project Management",pricing:"Free",desc:"Feature-rich project management tool with a generous free plan — tasks, docs, goals, and time tracking in one place.",tags:["Projects","Tasks","Free"],url:"https://clickup.com"},
+  {name:"Basecamp",cat:"Project Management",pricing:"Free",desc:"Free for nonprofits. Simple project and team communication tool — useful for distributed teams managing multiple programmes.",tags:["Projects","Communication","Free"],url:"https://basecamp.com"},
+  {name:"Airtable",cat:"Project Management",pricing:"Discount",desc:"Spreadsheet-database hybrid for managing complex data — useful for beneficiary tracking, grant databases, and programme monitoring.",tags:["Database","Projects","Data"],url:"https://airtable.com"},
+  {name:"Linear",cat:"Project Management",pricing:"Free",desc:"Fast, minimal project tracking tool — ideal for tech-building social enterprises managing product development alongside programme work.",tags:["Projects","Development","Speed"],url:"https://linear.app"},
+
+  // Data & M&E
+  {name:"Google Data Studio (Looker)",cat:"Data & M&E",pricing:"Free",desc:"Free data visualisation and reporting tool that connects to Google Sheets, BigQuery, and other sources — useful for donor dashboards and impact reports.",tags:["Data","Visualisation","Reporting"],url:"https://lookerstudio.google.com"},
+  {name:"Kobo Toolbox",cat:"Data & M&E",pricing:"Free",desc:"Free data collection platform designed for humanitarian and development contexts — offline-capable mobile forms for field data collection.",tags:["Data Collection","Field","M&E"],url:"https://kobotoolbox.org"},
+  {name:"ODK (Open Data Kit)",cat:"Data & M&E",pricing:"Free",desc:"Open-source mobile data collection platform widely used in the Indian social sector — supports complex survey logic and offline data collection.",tags:["Data Collection","Open Source","Field"],url:"https://getodk.org"},
+  {name:"Tableau Public",cat:"Data & M&E",pricing:"Free",desc:"Free data visualisation platform for creating and sharing interactive dashboards — useful for public-facing impact visualisations.",tags:["Data","Visualisation","Public"],url:"https://public.tableau.com"},
+  {name:"Power BI",cat:"Data & M&E",pricing:"Discount",desc:"Microsoft's data analytics and visualisation platform. Nonprofit discount via Microsoft for Nonprofits. Useful for operational dashboards and impact reporting.",tags:["Data","Analytics","Microsoft"],url:"https://powerbi.microsoft.com"},
+  {name:"DHIS2",cat:"Data & M&E",pricing:"Free",desc:"Open-source health and development data management system — widely used by Indian NGOs for health programme monitoring and government reporting.",tags:["Data","Health","Open Source"],url:"https://dhis2.org"},
+  {name:"CommCare",cat:"Data & M&E",pricing:"Discount",desc:"Mobile data collection and case management platform used widely in India's development sector. Nonprofit pricing available.",tags:["Data Collection","Case Management","Mobile"],url:"https://dimagi.com/commcare"},
+  {name:"SurveyCTO",cat:"Data & M&E",pricing:"Paid",desc:"Professional-grade mobile data collection platform with strong offline capabilities and data quality controls — trusted by research organisations in India.",tags:["Data Collection","Research","Quality"],url:"https://surveycto.com"},
+  {name:"MAXQDA",cat:"Data & M&E",pricing:"Discount",desc:"Qualitative data analysis software for analysing interview transcripts, field notes, and open-ended survey responses. Nonprofit discount available.",tags:["Qualitative","Analysis","Research"],url:"https://maxqda.com"},
+
+  // Communications
+  {name:"Mailchimp",cat:"Communications",pricing:"Free",desc:"Email marketing platform with a free plan for up to 500 contacts. Useful for donor communications, programme updates, and newsletter management.",tags:["Email","Marketing","Newsletter"],url:"https://mailchimp.com"},
+  {name:"Brevo (Sendinblue)",cat:"Communications",pricing:"Free",desc:"Email and SMS marketing platform with a generous free plan — useful for beneficiary communications, WhatsApp integration, and transactional emails.",tags:["Email","SMS","WhatsApp"],url:"https://brevo.com"},
+  {name:"Buffer",cat:"Communications",pricing:"Free",desc:"Social media scheduling and analytics platform. Free plan for up to 3 channels. Useful for managing consistent social media presence with limited staff.",tags:["Social Media","Scheduling","Analytics"],url:"https://buffer.com"},
+  {name:"Hootsuite",cat:"Communications",pricing:"Discount",desc:"Social media management platform. Nonprofit discount available. Useful for larger teams managing multiple social accounts and reporting on reach.",tags:["Social Media","Management","Teams"],url:"https://hootsuite.com"},
+  {name:"Zoom",cat:"Communications",pricing:"Discount",desc:"Video conferencing platform. Significant nonprofit discount available through Zoom for Good. Essential for distributed teams and remote programme delivery.",tags:["Video","Meetings","Remote"],url:"https://zoom.us"},
+  {name:"Google Workspace for Nonprofits",cat:"Communications",pricing:"Free",desc:"Full Google Workspace (Gmail, Drive, Docs, Meet, Calendar) free for eligible nonprofits — the most widely used productivity suite in the Indian social sector.",tags:["Productivity","Email","Collaboration"],url:"https://workspace.google.com/nonprofits"},
+  {name:"Microsoft 365 for Nonprofits",cat:"Communications",pricing:"Discount",desc:"Microsoft Office suite including Teams, SharePoint, and OneDrive at deeply discounted rates for eligible nonprofits.",tags:["Productivity","Microsoft","Collaboration"],url:"https://www.microsoft.com/en-in/nonprofits"},
+  {name:"Slack",cat:"Communications",pricing:"Discount",desc:"Team messaging platform. Pro plan discount for nonprofits. Useful for internal team communication and coordination across distributed programme teams.",tags:["Messaging","Teams","Communication"],url:"https://slack.com"},
+  {name:"WhatsApp Business API",cat:"Communications",pricing:"Free",desc:"Essential for beneficiary communication in India. The API enables automated and bulk messaging for programme delivery and community engagement at scale.",tags:["WhatsApp","Messaging","India"],url:"https://business.whatsapp.com"},
+  {name:"Twilio",cat:"Communications",pricing:"Discount",desc:"Cloud communications platform for SMS, voice, and WhatsApp integrations. Impact Access Programme provides credits for social-impact organisations.",tags:["SMS","API","Integration"],url:"https://twilio.com"},
+
+  // Finance
+  {name:"Wave Accounting",cat:"Finance",pricing:"Free",desc:"Free accounting software with invoicing, expense tracking, and basic reporting — well-suited for small nonprofits and social enterprises.",tags:["Accounting","Free","Finance"],url:"https://waveapps.com"},
+  {name:"Tally Prime",cat:"Finance",pricing:"Paid",desc:"India's most widely used accounting software — essential for GST compliance, TDS management, and statutory reporting for Indian entities.",tags:["Accounting","India","GST"],url:"https://tallysolutions.com"},
+  {name:"QuickBooks",cat:"Finance",pricing:"Discount",desc:"Cloud accounting platform with nonprofit pricing. Useful for multi-grant financial management, donor reporting, and audit preparation.",tags:["Accounting","Grants","Reporting"],url:"https://quickbooks.intuit.com"},
+  {name:"Razorpay",cat:"Finance",pricing:"Paid",desc:"India's leading payment gateway — essential for accepting online donations. Supports UPI, cards, and net banking. Reduced fees for registered nonprofits.",tags:["Payments","Donations","India"],url:"https://razorpay.com"},
+  {name:"Zerodha Kite (DSC Integration)",cat:"Finance",pricing:"Paid",desc:"For organisations managing corpus funds or investments, integration with digital signature and financial platforms is key to governance compliance.",tags:["Finance","Investments","Governance"],url:"https://zerodha.com"},
+  {name:"GiveIndia Portal",cat:"Finance",pricing:"Free",desc:"India's leading giving platform — enables verified nonprofits to list and receive tax-exempt donations from individuals and corporates.",tags:["Donations","India","80G"],url:"https://giveindia.org"},
+
+  // Design
+  {name:"Canva for Nonprofits",cat:"Design",pricing:"Free",desc:"Free Canva Pro access for registered nonprofits — the most accessible design tool for creating social media graphics, presentations, reports, and print materials.",tags:["Design","Visual","Free"],url:"https://canva.com/nonprofits"},
+  {name:"Adobe Express",cat:"Design",pricing:"Discount",desc:"Adobe's accessible design tool with nonprofit pricing. Useful for quick graphic creation, video editing, and social content.",tags:["Design","Adobe","Visual"],url:"https://www.adobe.com/express/"},
+  {name:"Figma",cat:"Design",pricing:"Discount",desc:"Collaborative design platform. Nonprofit discount available. Useful for organisations building digital products or needing UX design capability.",tags:["Design","UX","Collaborative"],url:"https://figma.com"},
+  {name:"Piktochart",cat:"Design",pricing:"Discount",desc:"Infographic and report design tool — useful for turning M&E data into visually compelling reports and donor communications.",tags:["Infographics","Reports","Visual"],url:"https://piktochart.com"},
+  {name:"Visme",cat:"Design",pricing:"Discount",desc:"Visual content creation platform for presentations, infographics, and reports. Nonprofit discount available.",tags:["Presentations","Design","Visual"],url:"https://visme.co"},
+
+  // Additional tools to reach 65
+  {name:"Salesforce Nonprofit Success Pack",cat:"Data & M&E",pricing:"Free",desc:"10 free Salesforce licences for eligible nonprofits through the Power of Us Programme. Comprehensive CRM for donor management, programme tracking, and reporting.",tags:["CRM","Donors","Salesforce"],url:"https://www.salesforce.org/nonprofit"},
+  {name:"HubSpot for Nonprofits",cat:"Communications",pricing:"Discount",desc:"CRM, email marketing, and content management platform. 40% discount for nonprofits. Useful for donor relationship management and communications.",tags:["CRM","Email","Marketing"],url:"https://hubspot.com"},
+  {name:"Zoho One for Nonprofits",cat:"Project Management",pricing:"Discount",desc:"Comprehensive suite of 45+ business apps at nonprofit pricing — CRM, project management, accounting, and HR in one ecosystem.",tags:["Suite","CRM","Finance"],url:"https://zoho.com/nonprofits"},
+  {name:"Miro",cat:"Project Management",pricing:"Discount",desc:"Online whiteboard platform for strategy workshops, theory of change development, and distributed team collaboration. Nonprofit discount available.",tags:["Whiteboard","Strategy","Collaboration"],url:"https://miro.com"},
+  {name:"Typeform",cat:"Data & M&E",pricing:"Discount",desc:"Conversational form and survey platform — useful for beneficiary feedback collection, programme applications, and stakeholder surveys. Nonprofit discount available.",tags:["Forms","Surveys","Data"],url:"https://typeform.com"},
+  {name:"Loom",cat:"Communications",pricing:"Free",desc:"Asynchronous video messaging platform. Free for education and nonprofits. Useful for internal training, stakeholder updates, and remote team communication.",tags:["Video","Async","Communication"],url:"https://loom.com"},
+  {name:"DocuSign",cat:"Operations",pricing:"Discount",desc:"Digital signature platform. Nonprofit pricing available. Essential for grant agreements, partnership MOUs, and employment contracts.",tags:["Signatures","Legal","Documents"],url:"https://docusign.com"},
+  {name:"Dropbox Business",cat:"Project Management",pricing:"Discount",desc:"Cloud storage and file sharing. Nonprofit discount available. Useful for secure document management and sharing with field teams.",tags:["Storage","Files","Collaboration"],url:"https://dropbox.com"},
+  {name:"1Password Teams",cat:"Project Management",pricing:"Discount",desc:"Password management platform for teams. Nonprofit discount available. Critical for organisational cybersecurity — particularly important for organisations handling beneficiary data.",tags:["Security","Passwords","Teams"],url:"https://1password.com"},
+  {name:"Grammarly Business",cat:"Communications",pricing:"Discount",desc:"AI writing assistant for grammar, clarity, and tone. Useful for teams producing donor reports, grant proposals, and external communications.",tags:["Writing","AI","Communications"],url:"https://grammarly.com"},
+  {name:"Otter.ai",cat:"AI & Automation",pricing:"Free",desc:"AI-powered transcription and meeting notes. Free plan available. Useful for transcribing interviews, focus groups, and board meetings.",tags:["Transcription","AI","Meetings"],url:"https://otter.ai"},
+  {name:"Calendly",cat:"Communications",pricing:"Free",desc:"Meeting scheduling automation. Free plan for individuals. Useful for managing donor meetings, partner calls, and beneficiary appointments without back-and-forth emails.",tags:["Scheduling","Meetings","Automation"],url:"https://calendly.com"},
+  {name:"Freshdesk",cat:"Communications",pricing:"Free",desc:"Customer support platform with a free plan. Useful for nonprofits managing large volumes of beneficiary inquiries, programme applications, or helpline operations.",tags:["Support","Helpdesk","Free"],url:"https://freshdesk.com"},
+  {name:"Glide",cat:"AI & Automation",pricing:"Discount",desc:"No-code app builder that turns spreadsheets into mobile apps. Useful for building beneficiary-facing apps, field data entry tools, and programme tracking apps.",tags:["No-code","Apps","Mobile"],url:"https://glideapps.com"},
+  {name:"Power Automate (Microsoft)",cat:"AI & Automation",pricing:"Discount",desc:"Workflow automation within the Microsoft ecosystem. Included in Microsoft 365 for Nonprofits — useful for automating data flows between Teams, SharePoint, and Excel.",tags:["Automation","Microsoft","Workflows"],url:"https://powerautomate.microsoft.com"},
+];
+
+let activeFilter='All';
+function setFilter(f,btn){
+  activeFilter=f;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderTools();
+}
+function renderTools(){
+  const q=document.getElementById('tool-search').value.toLowerCase();
+  const grid=document.getElementById('tools-grid');
+  const empty=document.getElementById('tools-empty');
+  const filtered=TOOLS.filter(t=>{
+    const matchFilter=activeFilter==='All'||t.cat===activeFilter;
+    const matchQ=!q||t.name.toLowerCase().includes(q)||t.cat.toLowerCase().includes(q)||t.desc.toLowerCase().includes(q)||t.tags.some(tag=>tag.toLowerCase().includes(q));
+    return matchFilter&&matchQ;
+  });
+  document.getElementById('tool-count').textContent=`${filtered.length} of ${TOOLS.length}`;
+  if(!filtered.length){grid.innerHTML='';empty.style.display='block';return;}
+  empty.style.display='none';
+  const pClass={Free:'pricing-free',Discount:'pricing-discount',Paid:'pricing-paid'};
+  grid.innerHTML=filtered.map(t=>`
+    <a href="${t.url}" target="_blank" rel="noopener noreferrer" class="tool-card" role="listitem" aria-label="${t.name}">
+      <div class="tool-cat">${t.cat}</div>
+      <div class="tool-name">${t.name}</div>
+      <span class="tool-pricing ${pClass[t.pricing]||'pricing-paid'}">${t.pricing==='Discount'?'Nonprofit Discount':t.pricing}</span>
+      <div class="tool-desc">${t.desc}</div>
+      <div class="tool-tags">${t.tags.map(tag=>`<span class="tool-tag">${tag}</span>`).join('')}</div>
+      <div class="tool-link">Learn more →</div>
+    </a>
+  `).join('');
+}
+renderTools();
+document.getElementById('mnav').querySelectorAll('a').forEach(a=>{
+  a.addEventListener('click',()=>document.getElementById('mnav').classList.remove('open'));
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research & Readings — the^delta</title>
+<meta name="description" content="An editorial library of reports, briefs, and curated readings on India's livelihoods, climate, and economic mobility — assembled for founders, funders, and operators.">
+<meta property="og:title" content="Research & Readings — the^delta">
+<meta property="og:description" content="Original reports and curated readings on India's livelihoods landscape.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://thedelta.org.in/research">
+<style>
+  :root{--red:#b21010;--red-dark:#900000;--slate:#6e7475;--dark:#363d3f;--light-grey:#f0f0f0;--white:#ffffff;--text:#2d3537;--text-muted:#6e7475;--border:#e5e5e5;--font-sans:'Inter',system-ui,-apple-system,sans-serif}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-sans);color:var(--text);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+  nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:60px;box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+  .nav-logo{font-size:1.15rem;font-weight:700;color:var(--dark);text-decoration:none;letter-spacing:-0.02em}
+  .nav-logo .caret{color:var(--red)}
+  .nav-links{display:flex;align-items:center;gap:2rem}
+  .nav-links a{font-size:0.82rem;font-weight:500;color:var(--text-muted);text-decoration:none;letter-spacing:0.02em;text-transform:uppercase;transition:color 0.2s;position:relative}
+  .nav-links a:hover,.nav-links a.active{color:var(--dark)}
+  .nav-links a.active::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--red)}
+  .nav-cta{background:var(--red)!important;color:var(--white)!important;padding:0.45rem 1.1rem;font-size:0.78rem!important}
+  .nav-cta:hover{background:var(--red-dark)!important}
+  .nav-cta.active::after{display:none!important}
+  .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--dark);margin:5px 0}
+  .mobile-nav{display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:var(--white);z-index:99;padding:2rem 5%;flex-direction:column;overflow-y:auto}
+  .mobile-nav.open{display:flex}
+  .mobile-nav a{font-size:1rem;font-weight:500;color:var(--dark);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border)}
+  .page-header{padding:2.5rem 5% 0;background:var(--white)}
+  .page-eyebrow{font-size:0.7rem;font-weight:700;color:var(--red);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.6rem;display:block}
+  .page-header h1{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--dark);letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.4rem}
+  .page-header p{font-size:0.88rem;color:var(--text-muted);max-width:560px;line-height:1.6;padding-bottom:1.5rem}
+  .filter-bar{padding:0.9rem 5%;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap;background:var(--white);position:sticky;top:60px;z-index:50}
+  .filter-btn{padding:0.32rem 0.8rem;font-size:0.75rem;font-weight:600;border:1.5px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;transition:all 0.15s;font-family:var(--font-sans);letter-spacing:0.01em;white-space:nowrap}
+  .filter-btn:hover{border-color:var(--dark);color:var(--dark)}
+  .filter-btn.active{background:var(--red);border-color:var(--red);color:var(--white)}
+  .filter-right{margin-left:auto;display:flex;align-items:center;gap:0.8rem}
+  .filter-count{font-size:0.75rem;color:var(--text-muted);font-weight:500;white-space:nowrap}
+  .search-wrap{position:relative}
+  .search-wrap input{padding:0.35rem 0.8rem 0.35rem 2rem;border:1.5px solid var(--border);outline:none;font-size:0.78rem;font-family:var(--font-sans);color:var(--text);width:180px}
+  .search-wrap input:focus{border-color:var(--slate)}
+  .search-wrap::before{content:'⌕';position:absolute;left:0.5rem;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:0.95rem;pointer-events:none}
+  .research-section{padding:2rem 5% 3rem}
+  .research-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1px;background:var(--border)}
+  .res-card{background:var(--white);padding:1.6rem 1.8rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:0.5rem;transition:background 0.18s;position:relative;overflow:hidden}
+  .res-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform 0.25s}
+  .res-card:hover{background:#fafafa}
+  .res-card:hover::before{transform:scaleX(1)}
+  .res-num{font-size:0.68rem;font-weight:700;color:var(--red);letter-spacing:0.08em}
+  .res-category{font-size:0.68rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate);background:var(--light-grey);padding:0.18rem 0.45rem;display:inline-block;width:fit-content}
+  .res-title{font-size:0.95rem;font-weight:700;color:var(--dark);line-height:1.35}
+  .res-desc{font-size:0.81rem;color:var(--text-muted);line-height:1.6;flex:1}
+  .res-tags{display:flex;gap:0.25rem;flex-wrap:wrap;margin-top:0.2rem}
+  .res-tag{font-size:0.63rem;color:var(--text-muted);background:var(--light-grey);padding:0.12rem 0.4rem;font-weight:500}
+  .res-link{margin-top:0.6rem;font-size:0.77rem;font-weight:700;color:var(--red);letter-spacing:0.04em}
+  .empty-state{padding:4rem 5%;text-align:center;color:var(--text-muted)}
+  .empty-state h3{font-size:1rem;margin-bottom:0.4rem;color:var(--dark)}
+  footer{background:var(--dark);color:rgba(255,255,255,0.8);padding:3rem 5% 2rem}
+  .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+  .footer-logo{font-size:1.2rem;font-weight:800;color:var(--white);text-decoration:none;letter-spacing:-0.02em;margin-bottom:0.8rem;display:inline-block}
+  .footer-logo .caret{color:var(--red)}
+  .footer-tagline{font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.6;max-width:260px}
+  .footer-col h4{font-size:0.7rem;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem}
+  .footer-col a{display:block;font-size:0.85rem;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:0.6rem;transition:color 0.2s}
+  .footer-col a:hover{color:var(--white)}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+  .footer-bottom p{font-size:0.78rem;color:rgba(255,255,255,0.4)}
+  @media(max-width:900px){.nav-links{display:none}.hamburger{display:block}.footer-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:640px){.research-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:2rem}.footer-bottom{flex-direction:column}.search-wrap input{width:130px}}
+</style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9E65CX3J4W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9E65CX3J4W');
+  </script>
+  <!-- Netlify Identity -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">the<span class="caret">^</span>delta</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="opportunities.html">Funding</a>
+    <a href="research.html" class="active">Research</a>
+    <a href="support.html">Operations</a>
+    <a href="tools.html">Tech & AI</a>
+    <a href="index.html#newsletter" class="nav-cta">Funding updates</a>
+  </div>
+  <button class="hamburger" aria-label="Toggle menu" onclick="document.getElementById('mnav').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-nav" id="mnav">
+  <a href="index.html">Home</a><a href="opportunities.html">Funding</a>
+  <a href="research.html">Research</a><a href="support.html">Operations</a>
+  <a href="tools.html">Tech & AI</a><a href="index.html#newsletter">Get funding updates</a>
+</div>
+
+<header class="page-header" role="banner">
+  <span class="page-eyebrow">Library · Research</span>
+  <h1>Reading the future of livelihoods.</h1>
+  <p>A curated archive of reports, briefs, and readings — assembled for founders, funders, and operators working in India's livelihoods ecosystem.</p>
+</header>
+
+<div class="filter-bar" role="search" aria-label="Filter research">
+  <button class="filter-btn active" onclick="setFilter('All',this)">All</button>
+  <button class="filter-btn" onclick="setFilter('Agriculture & Water',this)">AgWater</button>
+  <button class="filter-btn" onclick="setFilter('Funding & Grants',this)">Funding</button>
+  <button class="filter-btn" onclick="setFilter('M&E',this)">M&E</button>
+  <button class="filter-btn" onclick="setFilter('Operations',this)">Operations</button>
+  <button class="filter-btn" onclick="setFilter('Tech & AI',this)">Tech & AI</button>
+  <button class="filter-btn" onclick="setFilter('Climate',this)">Climate</button>
+  <div class="filter-right">
+    <div class="search-wrap">
+      <input type="text" id="res-search" placeholder="Search…" aria-label="Search research" oninput="renderRes()">
+    </div>
+    <span class="filter-count" id="res-count">— of —</span>
+  </div>
+</div>
+
+<main>
+<section class="research-section">
+  <div class="research-grid" id="res-grid" role="list" aria-label="Research resources"></div>
+  <div class="empty-state" id="res-empty" style="display:none">
+    <h3>No results found</h3><p>Try adjusting your search or filters.</p>
+  </div>
+</section>
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div>
+      <a href="index.html" class="footer-logo">the<span class="caret">^</span>delta</a>
+      <p class="footer-tagline">A platform for changemakers building resilient livelihoods in India — connecting capital, knowledge, and operational depth for social entrepreneurs.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="opportunities.html">Funding Opportunities</a>
+      <a href="research.html">Research & Readings</a>
+      <a href="support.html">Operational Support</a>
+      <a href="tools.html">Tech & AI Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="https://thedelta.org.in/" target="_blank" rel="noopener">thedelta.org.in</a>
+      <a href="index.html#newsletter">Get funding updates</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 the^delta. All rights reserved. Built for changemakers. Built in India.</p>
+    <p>For India's aspirant households.</p>
+  </div>
+</footer>
+
+<script>
+// All URLs verified against live sources
+const RESEARCH = [
+  {
+    num:"01",
+    title:"Solving India's AgWater Crisis",
+    category:"Agriculture & Water",
+    desc:"A comprehensive analysis of India's agricultural water crisis — causes, investment gaps, and pathways to systemic reform. Published by IWMI.",
+    tags:["Agriculture","Water","Policy"],
+    url:"https://www.iwmi.cgiar.org/Publications/Water_Policy_Briefs/PDF/WPB-46.pdf"
+  },
+  {
+    num:"02",
+    title:"Unlocking Investments to Shape India's AgWater Future: Pathways to Scale",
+    category:"Agriculture & Water",
+    desc:"Maps investment pathways for scaling agricultural water innovation across philanthropic, blended, and commercial funding types. Published by IWMI.",
+    tags:["Agriculture","Water","Investment"],
+    url:"https://www.iwmi.cgiar.org/Publications/IWMI_Research_Reports/PDF/pub183/rr183.pdf"
+  },
+  {
+    num:"03",
+    title:"Mapping India's AgWater Landscape",
+    category:"Agriculture & Water",
+    desc:"A landscape mapping of key players, initiatives, and investment gaps in India's agricultural water sector. Published by Water for People.",
+    tags:["Agriculture","Water","Landscape"],
+    url:"https://www.waterforpeople.org/resources/"
+  },
+  {
+    num:"04",
+    title:"Mission Meets Market",
+    category:"Funding & Grants",
+    desc:"A practitioner's guide on how social enterprises balance mission integrity with commercial viability to attract diverse capital. Published by Stanford Social Innovation Review.",
+    tags:["Strategy","Capital","Social Enterprise"],
+    url:"https://ssir.org/articles/entry/mission_meets_market"
+  },
+  {
+    num:"05",
+    title:"Handbook on Planning, Monitoring and Evaluating for Development Results",
+    category:"M&E",
+    desc:"UNDP's definitive handbook on building M&E frameworks — theory of change, indicators, data systems, and evaluation policy for development organisations.",
+    tags:["M&E","UNDP","Development"],
+    url:"https://www.undp.org/turkiye/publications/undp-handbook-planning-monitoring-and-evaluating-development-results"
+  },
+  {
+    num:"06",
+    title:"Ten Steps to a Results-Based Monitoring and Evaluation System",
+    category:"M&E",
+    desc:"The World Bank's ten-step model for designing and implementing results-based M&E systems. Full text freely available via World Bank Open Knowledge.",
+    tags:["M&E","World Bank","Results"],
+    url:"https://documents1.worldbank.org/curated/en/638011468766181874/pdf/296720PAPER0100steps.pdf"
+  },
+  {
+    num:"07",
+    title:"IFC: Measuring the Impact of Impact Investing",
+    category:"M&E",
+    desc:"IFC's framework for measuring and managing impact in investment portfolios — operating principles, IRIS+ metrics, and reporting standards for impact investors.",
+    tags:["M&E","Impact Investing","IFC"],
+    url:"https://www.ifc.org/en/insights-reports/2019/meas-impact-invest"
+  },
+  {
+    num:"08",
+    title:"Writing a Grant Proposal: A Five-Step Guide for Nonprofits",
+    category:"Funding & Grants",
+    desc:"India Development Review's practical five-step framework for crafting grant proposals — with specific guidance for the Indian nonprofit context.",
+    tags:["Grants","Writing","India"],
+    url:"https://idronline.org/article/fundraising-and-communications/writing-a-grant-proposal-a-five-step-guide-for-nonprofits/"
+  },
+  {
+    num:"09",
+    title:"Finding the Right Funder for Your Nonprofit",
+    category:"Funding & Grants",
+    desc:"India Development Review's guide to researching and approaching funders strategically — matching your stage, sector, and structure to the right funding sources.",
+    tags:["Grants","Fundraising","India"],
+    url:"https://idronline.org/finding-the-right-funder-for-your-nonprofit/"
+  },
+  {
+    num:"10",
+    title:"Ten Nonprofit Funding Models",
+    category:"Funding & Grants",
+    desc:"Bridgespan's research on how the largest nonprofits build sustainable revenue — ten distinct funding models with examples, distinguishing funder type, decision-maker, and motivation.",
+    tags:["Nonprofits","Funding Models","Bridgespan"],
+    url:"https://www.bridgespan.org/insights/ten-nonprofit-funding-models"
+  },
+  {
+    num:"11",
+    title:"MyScheme: Central Government Schemes Directory",
+    category:"Funding & Grants",
+    desc:"Government of India's official directory of Central Government schemes — searchable by sector, state, and beneficiary type. Essential first stop for India-registered organisations.",
+    tags:["India","Government","Schemes"],
+    url:"https://www.myscheme.gov.in/"
+  },
+  {
+    num:"12",
+    title:"Fundraising Strategies for Nonprofits",
+    category:"Funding & Grants",
+    desc:"India Development Review's comprehensive guide to building a fundraising strategy — individual donors, CSR, government partnerships, and institutional funders.",
+    tags:["Fundraising","Strategy","India"],
+    url:"https://idronline.org/creating-fundraising-strategies-for-nonprofits/"
+  },
+  {
+    num:"13",
+    title:"GuideStar India: Building Nonprofit Credibility",
+    category:"Operations",
+    desc:"GuideStar India's framework for nonprofit accountability and public disclosure — how transparent reporting builds credibility with funders, government, and the public.",
+    tags:["Operations","Credibility","India"],
+    url:"https://www.guidestarindia.org/"
+  },
+  {
+    num:"14",
+    title:"IDR: A Vendor Database for Indian Nonprofits",
+    category:"Operations",
+    desc:"India Development Review's crowd-sourced vendor database covering auditors, lawyers, IT providers, and communications agencies for nonprofits in India.",
+    tags:["Vendors","Nonprofits","India"],
+    url:"https://idronline.org/article/fundraising-and-communications/a-vendor-database-for-nonprofits/"
+  },
+  {
+    num:"15",
+    title:"Social Media for Nonprofits: Hootsuite Guide",
+    category:"Operations",
+    desc:"A tactical guide to social media strategy for impact organisations — platform selection, content planning, audience building, and measuring reach.",
+    tags:["Communications","Social Media","Digital"],
+    url:"https://blog.hootsuite.com/social-media-for-nonprofits/"
+  },
+  {
+    num:"16",
+    title:"FCRA Compliance Guide for Indian NGOs",
+    category:"Operations",
+    desc:"Comprehensive FCRA compliance guidance — registration, annual returns, designated bank accounts, utilisation certificates, and audit requirements under FCRA 2010 and 2020 amendments.",
+    tags:["Compliance","FCRA","India"],
+    url:"https://cleartax.in/s/fcra-foreign-contribution-regulation-act"
+  },
+  {
+    num:"17",
+    title:"Compliance Calendar for Nonprofits in India",
+    category:"Operations",
+    desc:"India Development Review's month-by-month statutory compliance calendar for Indian nonprofits — covering ITR, Form 10B, FCRA returns, and CSR-1 filings.",
+    tags:["Compliance","Calendar","India"],
+    url:"https://idronline.org/article/fundraising-and-communications/compliance-calendar-for-nonprofits-in-india/"
+  },
+  {
+    num:"18",
+    title:"Tech4Good: Open Source Tools for Nonprofits",
+    category:"Tech & AI",
+    desc:"A practitioner's guide to open-source technology tools for nonprofits — CRM, project management, data collection, and communications, with implementation notes.",
+    tags:["Tech","Open Source","Nonprofits"],
+    url:"https://www.techforgood.global/blogs/the-best-free-and-open-source-tools-for-nonprofits"
+  },
+  {
+    num:"19",
+    title:"Buddy4Study: Scholarships and Fellowships Database",
+    category:"Funding & Grants",
+    desc:"India's largest scholarship database — covering education grants, fellowships, and skill-building scholarships for students and young professionals from underserved communities.",
+    tags:["Education","Scholarships","India"],
+    url:"https://www.buddy4study.com/"
+  },
+  {
+    num:"20",
+    title:"Mulago Foundation: Resources and Frameworks",
+    category:"Funding & Grants",
+    desc:"Mulago Foundation's open library of frameworks for designing scalable solutions — unit of change, delivery mechanisms, and the case for focused, simple programme design.",
+    tags:["Scale","Design","Mulago"],
+    url:"https://mulagofoundation.org/resources"
+  },
+  {
+    num:"21",
+    title:"BoardSource: Nonprofit Governance Fundamentals",
+    category:"Operations",
+    desc:"BoardSource's foundational resources on nonprofit governance — board roles, fiduciary duties, executive director relationships, conflict of interest, and board evaluation.",
+    tags:["Governance","Board","Nonprofits"],
+    url:"https://boardsource.org/resources/fundamentals-of-nonprofit-board-service/"
+  },
+  {
+    num:"22",
+    title:"Tech Nonprofit Playbooks — Fast Forward",
+    category:"Tech & AI",
+    desc:"Fast Forward's library of playbooks for tech nonprofits — covering product development, fundraising, AI integration, and scaling strategies. Includes the Playbook on AI-Powered Nonprofits.",
+    tags:["Tech","Nonprofits","AI"],
+    url:"https://www.ffwd.org/tools?filter=playbooks"
+  },
+  {
+    num:"23",
+    title:"AI for Nonprofits: Fast Forward Resource Hub",
+    category:"Tech & AI",
+    desc:"Fast Forward's dedicated AI resource hub for nonprofits — including the AI Policy Builder, Playbook on AI-Powered Nonprofits, and guides on responsible AI integration.",
+    tags:["AI","Nonprofits","Policy"],
+    url:"https://www.ffwd.org/ai-for-humanity"
+  },
+  {
+    num:"24",
+    title:"Landscape of Green Finance in India 2024",
+    category:"Climate",
+    desc:"Climate Policy Initiative's annual report tracking public and private green finance flows in India — by sector, instrument, and source. The most authoritative climate finance data for India.",
+    tags:["Climate","Finance","India"],
+    url:"https://www.climatepolicyinitiative.org/publication/landscape-of-green-finance-in-india-2024/"
+  },
+  {
+    num:"25",
+    title:"Financing Adaptation in India",
+    category:"Climate",
+    desc:"Climate Policy Initiative's assessment of India's adaptation finance landscape — policy gaps, state-level investment needs, and pathways to bridge funding gaps through public and private finance.",
+    tags:["Climate","Adaptation","India"],
+    url:"https://www.climatepolicyinitiative.org/publication/financing-adaptation-in-india/"
+  },
+  {
+    num:"26",
+    title:"NTEN: Nonprofit Technology Resources",
+    category:"Tech & AI",
+    desc:"NTEN's curated collection of technology resources for nonprofits — CRM selection guides, digital fundraising, cybersecurity basics, and data literacy for social sector organisations.",
+    tags:["Tech","Tools","Nonprofits"],
+    url:"https://www.nten.org/resources/"
+  },
+  {
+    num:"27",
+    title:"Google for Nonprofits: Tools and Programmes",
+    category:"Tech & AI",
+    desc:"Google's full suite of nonprofit programmes — Ad Grants ($10K/month in search ads), Google Workspace, YouTube Nonprofit Programme, and Google.org funding.",
+    tags:["Google","Tools","Grants"],
+    url:"https://www.google.com/nonprofits/"
+  },
+  {
+    num:"28",
+    title:"Salesforce Nonprofit Resources",
+    category:"Tech & AI",
+    desc:"Salesforce.org's resource library for nonprofits — guides on CRM implementation, donor management, programme tracking, and digital maturity assessment for social sector organisations.",
+    tags:["CRM","Salesforce","Digital"],
+    url:"https://www.salesforce.org/resources/guides/nonprofit-digital-maturity/"
+  },
+  {
+    num:"29",
+    title:"India Philanthropy Report 2024",
+    category:"Funding & Grants",
+    desc:"Dasra and Bain & Company's 14th edition of the India Philanthropy Report — giving trends across CSR, retail givers, UHNIs, and HNIs, with a focus on collaborative philanthropy.",
+    tags:["India","Philanthropy","Trends"],
+    url:"https://dasra.org/individual-resources/140"
+  },
+  {
+    num:"30",
+    title:"Dasra Research & Insights Hub",
+    category:"Funding & Grants",
+    desc:"Dasra's full library of 500+ research reports, sectoral analyses, and philanthropy landscape studies — the most comprehensive repository of Indian social sector research.",
+    tags:["India","Research","Philanthropy"],
+    url:"https://dasra.org/what-we-do/research-and-insights"
+  },
+  {
+    num:"31",
+    title:"IDR: Salary Benchmarks for Indian Nonprofits",
+    category:"Operations",
+    desc:"India Development Review's annual compensation survey — nonprofit salary benchmarks by organisation size, sector, geography, and years of experience.",
+    tags:["HR","Compensation","India"],
+    url:"https://idronline.org/the-salary-survey-for-nonprofits/"
+  },
+  {
+    num:"32",
+    title:"Finding Your Funding Model",
+    category:"Funding & Grants",
+    desc:"Bridgespan's practical guide to identifying the right funding model for your organisation — six steps from analysing your current approach to implementing a sustainable strategy.",
+    tags:["Funding Models","Strategy","Bridgespan"],
+    url:"https://www.bridgespan.org/getmedia/52a19f80-fc02-4312-a19c-1a0b69d3def8/Funding-Models-Guide_1.pdf"
+  },
+  {
+    num:"33",
+    title:"PRS India: FCRA Amendment 2020 Explained",
+    category:"Operations",
+    desc:"PRS Legislative Research's clear explainer on the 2020 FCRA amendments — what changed, what it means for NGOs receiving foreign funds, and compliance implications.",
+    tags:["FCRA","Policy","India"],
+    url:"https://prsindia.org/billtrack/foreign-contribution-regulation-amendment-bill-2020"
+  },
+  {
+    num:"34",
+    title:"Global Landscape of Climate Finance 2023",
+    category:"Climate",
+    desc:"Climate Policy Initiative's global climate finance tracking report — flows by geography, sector, and instrument, with analysis of gaps and the private finance milestone.",
+    tags:["Climate","Finance","Global"],
+    url:"https://www.climatepolicyinitiative.org/publication/global-landscape-of-climate-finance-2023/"
+  },
+  {
+    num:"35",
+    title:"Stanford Social Innovation Review: Funding Hub",
+    category:"Funding & Grants",
+    desc:"SSIR's curated archive of articles on nonprofit and social enterprise funding — catalytic capital, venture philanthropy, earned revenue, and big bets philanthropy.",
+    tags:["Funding","Social Innovation","SSIR"],
+    url:"https://ssir.org/topics/funding"
+  },
+  {
+    num:"36",
+    title:"GIIN: What You Need to Know About Impact Investing",
+    category:"M&E",
+    desc:"The Global Impact Investing Network's primer on impact investing — IRIS+ metrics, operating principles for impact management, and how to align capital with measurable outcomes.",
+    tags:["Impact Investing","IRIS+","M&E"],
+    url:"https://thegiin.org/impact-investing/"
+  },
+  {
+    num:"37",
+    title:"GSDRC: Results-Based M&E Systems — Overview",
+    category:"M&E",
+    desc:"GSDRC's synthesis of results-based monitoring and evaluation frameworks — readiness assessment, indicator design, data collection, and sustaining M&E systems over time.",
+    tags:["M&E","Results","Frameworks"],
+    url:"https://gsdrc.org/document-library/ten-steps-to-a-results-based-monitoring-and-evaluation-system/"
+  },
+  {
+    num:"38",
+    title:"Green Investment Opportunities in India 2025",
+    category:"Climate",
+    desc:"CPI and Impact Investors Council's roadmap of near-term, climate-relevant investment opportunities in India — clean energy, water, climate-smart agriculture, and sustainable cooling.",
+    tags:["Climate","Investment","India"],
+    url:"https://www.climatepolicyinitiative.org/publication/green-investment-opportunities-in-india/"
+  },
+  {
+    num:"39",
+    title:"IDR: How to Get Funding for Core Costs",
+    category:"Funding & Grants",
+    desc:"India Development Review's guide to securing unrestricted and core funding — why most nonprofits struggle with it, what funders look for, and how to make the ask.",
+    tags:["Funding","Core Costs","India"],
+    url:"https://idronline.org/article/fundraising-and-communications/how-to-get-funding-for-your-organisations-core-costs/"
+  },
+  {
+    num:"40",
+    title:"UNDP Digital Library: Development Finance Resources",
+    category:"Funding & Grants",
+    desc:"UNDP's open digital library of development finance publications — covering blended finance, impact investment, SDG financing, and country-level development funding strategies.",
+    tags:["UNDP","Development Finance","SDGs"],
+    url:"https://digitallibrary.un.org/search?f1=corporate&as=1&sf=title&so=a&rm=&m=&p=&action_search=Search&c=UNDP&ln=en"
+  },
+];
+
+let activeFilter = 'All';
+function setFilter(f, btn) {
+  activeFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderRes();
+}
+function renderRes() {
+  const q = document.getElementById('res-search').value.toLowerCase();
+  const grid = document.getElementById('res-grid');
+  const empty = document.getElementById('res-empty');
+  const filtered = RESEARCH.filter(r => {
+    const matchFilter = activeFilter === 'All' || r.category === activeFilter;
+    const matchQ = !q || r.title.toLowerCase().includes(q) || r.category.toLowerCase().includes(q) || r.desc.toLowerCase().includes(q) || r.tags.some(t => t.toLowerCase().includes(q));
+    return matchFilter && matchQ;
+  });
+  document.getElementById('res-count').textContent = `${filtered.length} of ${RESEARCH.length}`;
+  if (!filtered.length) { grid.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  grid.innerHTML = filtered.map(r => `
+    <a href="${r.url}" target="_blank" rel="noopener noreferrer" class="res-card" role="listitem" aria-label="${r.title}">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem">
+        <span class="res-num">${r.num}</span>
+        <span class="res-category">${r.category}</span>
+      </div>
+      <div class="res-title">${r.title}</div>
+      <div class="res-desc">${r.desc}</div>
+      <div class="res-tags">${r.tags.map(t => `<span class="res-tag">${t}</span>`).join('')}</div>
+      <div class="res-link">Read →</div>
+    </a>
+  `).join('');
+}
+renderRes();
+document.getElementById('mnav').querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('mnav').classList.remove('open'));
+});
+</script>
+</body>
+</html>
