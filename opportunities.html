@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funding Opportunities — the^delta</title>
+<meta name="description" content="A searchable directory of 223 grants, fellowships, accelerators, and impact funds for India's social entrepreneurs.">
+<meta property="og:title" content="Funding Opportunities — the^delta">
+<meta property="og:description" content="A live directory of grants, fellowships, accelerators, and impact funds for social entrepreneurs building in India.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://thedelta.org.in/opportunities">
+<style>
+  :root { --red:#b21010;--red-dark:#900000;--slate:#6e7475;--dark:#363d3f;--light-grey:#f0f0f0;--white:#ffffff;--text:#2d3537;--text-muted:#6e7475;--border:#e5e5e5;--font-sans:'Inter',system-ui,-apple-system,sans-serif; }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-sans);color:var(--text);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+  nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:60px;box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+  .nav-logo{font-size:1.15rem;font-weight:700;color:var(--dark);text-decoration:none;letter-spacing:-0.02em}
+  .nav-logo .caret{color:var(--red)}
+  .nav-links{display:flex;align-items:center;gap:2rem}
+  .nav-links a{font-size:0.82rem;font-weight:500;color:var(--text-muted);text-decoration:none;letter-spacing:0.02em;text-transform:uppercase;transition:color 0.2s;position:relative}
+  .nav-links a:hover,.nav-links a.active{color:var(--dark)}
+  .nav-links a.active::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--red)}
+  .nav-cta{background:var(--red)!important;color:var(--white)!important;padding:0.45rem 1.1rem;font-size:0.78rem!important}
+  .nav-cta:hover{background:var(--red-dark)!important}
+  .nav-cta.active::after{display:none!important}
+  .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--dark);margin:5px 0}
+  .mobile-nav{display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:var(--white);z-index:99;padding:2rem 5%;flex-direction:column;overflow-y:auto}
+  .mobile-nav.open{display:flex}
+  .mobile-nav a{font-size:1rem;font-weight:500;color:var(--dark);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border)}
+
+  /* PAGE HEADER — compact */
+  .page-header{padding:2.5rem 5% 0;background:var(--white)}
+  .page-eyebrow{font-size:0.7rem;font-weight:700;color:var(--red);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.6rem;display:block}
+  .page-header h1{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--dark);letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.4rem}
+  .page-header p{font-size:0.88rem;color:var(--text-muted);max-width:560px;line-height:1.6;padding-bottom:1.5rem}
+
+  /* FILTER BAR — sticky, two rows */
+  .filter-bar{
+    padding:0.9rem 5%;border-bottom:1px solid var(--border);
+    background:var(--white);position:sticky;top:60px;z-index:50;
+    display:flex;flex-direction:column;gap:0.55rem;
+  }
+  .filter-row{display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap}
+  .filter-label{font-size:0.68rem;font-weight:700;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-right:0.2rem;white-space:nowrap}
+  .filter-btn{padding:0.32rem 0.8rem;font-size:0.75rem;font-weight:600;border:1.5px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;transition:all 0.15s;font-family:var(--font-sans);letter-spacing:0.01em;white-space:nowrap}
+  .filter-btn:hover{border-color:var(--dark);color:var(--dark)}
+  .filter-btn.active{background:var(--red);border-color:var(--red);color:var(--white)}
+  .filter-btn.active-dark{background:var(--dark);border-color:var(--dark);color:var(--white)}
+  .filter-right{margin-left:auto;display:flex;align-items:center;gap:0.8rem}
+  .filter-count{font-size:0.75rem;color:var(--text-muted);font-weight:500;white-space:nowrap}
+  .search-wrap{position:relative}
+  .search-wrap input{padding:0.35rem 0.8rem 0.35rem 2rem;border:1.5px solid var(--border);outline:none;font-size:0.78rem;font-family:var(--font-sans);color:var(--text);transition:border-color 0.2s;width:180px}
+  .search-wrap input:focus{border-color:var(--slate)}
+  .search-wrap::before{content:'⌕';position:absolute;left:0.5rem;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:0.95rem;pointer-events:none}
+
+  /* TABLE LAYOUT — more compact than cards */
+  .opp-table-wrap{padding:0 5% 3rem}
+  .opp-table{width:100%;border-collapse:collapse}
+  .opp-table thead{position:sticky;top:calc(60px + 88px);z-index:40;background:var(--white)}
+  .opp-table th{
+    padding:0.6rem 0.8rem;font-size:0.68rem;font-weight:700;
+    color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;
+    border-bottom:2px solid var(--border);text-align:left;white-space:nowrap
+  }
+  .opp-table td{padding:0.7rem 0.8rem;border-bottom:1px solid #f0f0f0;font-size:0.83rem;vertical-align:middle}
+  .opp-table tbody tr{cursor:pointer;transition:background 0.15s}
+  .opp-table tbody tr:hover{background:#fafafa}
+  .opp-name{font-weight:700;color:var(--dark)}
+  .opp-name a{text-decoration:none;color:inherit}
+  .opp-name a:hover{color:var(--red)}
+  .badge{font-size:0.65rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.18rem 0.45rem;display:inline-block;white-space:nowrap}
+  .badge-type{background:var(--light-grey);color:var(--slate)}
+  .badge-both{background:rgba(54,61,63,0.08);color:var(--dark)}
+  .badge-nfp{background:rgba(178,16,16,0.07);color:var(--red)}
+  .badge-fp{background:rgba(110,116,117,0.1);color:var(--slate)}
+  .tag-pill{font-size:0.63rem;color:var(--text-muted);background:var(--light-grey);padding:0.12rem 0.4rem;display:inline-block;margin:0.1rem 0.15rem 0.1rem 0;white-space:nowrap}
+  .opp-amount{font-size:0.8rem;color:var(--text-muted);white-space:nowrap}
+  .opp-region{font-size:0.8rem;color:var(--text-muted);white-space:nowrap}
+  .apply-link{font-size:0.75rem;font-weight:700;color:var(--red);text-decoration:none;letter-spacing:0.03em;white-space:nowrap}
+  .apply-link:hover{color:var(--red-dark)}
+  .empty-state{padding:4rem 5%;text-align:center;color:var(--text-muted)}
+  .empty-state h3{font-size:1rem;margin-bottom:0.4rem;color:var(--dark)}
+
+  footer{background:var(--dark);color:rgba(255,255,255,0.8);padding:3rem 5% 2rem}
+  .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+  .footer-logo{font-size:1.2rem;font-weight:800;color:var(--white);text-decoration:none;letter-spacing:-0.02em;margin-bottom:0.8rem;display:inline-block}
+  .footer-logo .caret{color:var(--red)}
+  .footer-tagline{font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.6;max-width:260px}
+  .footer-col h4{font-size:0.7rem;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem}
+  .footer-col a{display:block;font-size:0.85rem;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:0.6rem;transition:color 0.2s}
+  .footer-col a:hover{color:var(--white)}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+  .footer-bottom p{font-size:0.78rem;color:rgba(255,255,255,0.4)}
+
+  @media(max-width:900px){
+    .nav-links{display:none}.hamburger{display:block}
+    .opp-table thead{top:calc(60px + 110px)}
+    .col-region,.col-amount{display:none}
+    .footer-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:640px){
+    .col-tags{display:none}
+    .search-wrap input{width:130px}
+    .footer-grid{grid-template-columns:1fr;gap:2rem}
+    .footer-bottom{flex-direction:column}
+    .opp-table thead{top:calc(60px + 130px)}
+  }
+</style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9E65CX3J4W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9E65CX3J4W');
+  </script>
+  <!-- Netlify Identity -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">the<span class="caret">^</span>delta</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="opportunities.html" class="active">Funding</a>
+    <a href="research.html">Research</a>
+    <a href="support.html">Operations</a>
+    <a href="tools.html">Tech & AI</a>
+    <a href="index.html#newsletter" class="nav-cta">Funding updates</a>
+  </div>
+  <button class="hamburger" aria-label="Toggle menu" onclick="document.getElementById('mnav').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-nav" id="mnav">
+  <a href="index.html">Home</a><a href="opportunities.html">Funding</a>
+  <a href="research.html">Research</a><a href="support.html">Operations</a>
+  <a href="tools.html">Tech & AI</a><a href="index.html#newsletter">Get funding updates</a>
+</div>
+
+<header class="page-header" role="banner">
+  <span class="page-eyebrow">Directory · Funding</span>
+  <h1>Capital for changemakers.</h1>
+  <p>A living index of grants, fellowships, accelerators, and impact funds — for nonprofit, for-profit, and hybrid ventures building India's livelihoods.</p>
+</header>
+
+<div class="filter-bar" role="search" aria-label="Filter funding opportunities">
+  <!-- Row 1: Sector filters + search -->
+  <div class="filter-row">
+    <span class="filter-label">Sector</span>
+    <button class="filter-btn active" onclick="setSector('All',this)">All</button>
+    <button class="filter-btn" onclick="setSector('Climate',this)">Climate</button>
+    <button class="filter-btn" onclick="setSector('Livelihoods',this)">Livelihoods</button>
+    <button class="filter-btn" onclick="setSector('Education',this)">Education</button>
+    <button class="filter-btn" onclick="setSector('Health',this)">Health</button>
+    <button class="filter-btn" onclick="setSector('Agriculture',this)">Agriculture</button>
+    <button class="filter-btn" onclick="setSector('Gender',this)">Gender</button>
+    <div class="filter-right">
+      <div class="search-wrap">
+        <input type="text" id="opp-search" placeholder="Search…" aria-label="Search opportunities" oninput="renderOpps()">
+      </div>
+      <span class="filter-count" id="opp-count">— of —</span>
+    </div>
+  </div>
+  <!-- Row 2: Entity filters -->
+  <div class="filter-row">
+    <span class="filter-label">Entity</span>
+    <button class="filter-btn active" onclick="setEntity('All',this)">All</button>
+    <button class="filter-btn" onclick="setEntity('Not for Profit',this)">Not for Profit</button>
+    <button class="filter-btn" onclick="setEntity('For Profit',this)">For Profit</button>
+    <button class="filter-btn" onclick="setEntity('Both',this)">Both</button>
+  </div>
+</div>
+
+<main>
+  <div class="opp-table-wrap">
+    <table class="opp-table" aria-label="Funding opportunities">
+      <thead>
+        <tr>
+          <th>Organisation</th>
+          <th>Type</th>
+          <th class="col-tags">Sectors</th>
+          <th class="col-region">Region</th>
+          <th class="col-amount">Amount</th>
+          <th>Entity</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="opp-tbody"></tbody>
+    </table>
+    <div class="empty-state" id="empty-state" style="display:none">
+      <h3>No results found</h3>
+      <p>Try adjusting your search or filters.</p>
+    </div>
+  </div>
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div>
+      <a href="index.html" class="footer-logo">the<span class="caret">^</span>delta</a>
+      <p class="footer-tagline">A platform for changemakers building resilient livelihoods in India — connecting capital, knowledge, and operational depth for social entrepreneurs.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="opportunities.html">Funding Opportunities</a>
+      <a href="research.html">Research & Readings</a>
+      <a href="support.html">Operational Support</a>
+      <a href="tools.html">Tech & AI Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="https://thedelta.org.in/" target="_blank" rel="noopener">thedelta.org.in</a>
+      <a href="index.html#newsletter">Get funding updates</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 the^delta. All rights reserved. Built for changemakers. Built in India.</p>
+    <p>For India's aspirant households.</p>
+  </div>
+</footer>
+
+<script>
+const OPPS = [
+  {name:"100x Impact Accelerator",type:"Fellowship",entity:"Both",tags:["All"],region:"Global",amount:"£150K",url:"https://www.100ximpact.org/"},
+  {name:"10x Impact Labs",type:"Fellowship",entity:"Both",tags:["All"],region:"India",amount:"Monthly Stipend",url:"https://10ximpact.in/"},
+  {name:"11th Hour Project (Schmidt Foundation)",type:"Fellowship",entity:"Not for Profit",tags:["Climate","Agriculture","Health"],region:"Global",amount:"Varies",url:"http://www.11thhourproject.org/"},
+  {name:"2X Global",type:"Fund",entity:"Both",tags:["All"],region:"Global",amount:"$100K–$500K",url:"https://www.2xglobal.org/"},
+  {name:"Abundance Foundation",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods"],region:"Global",amount:"Varies",url:"http://www.abundance.org/"},
+  {name:"ACT Grants",type:"Fellowship",entity:"Both",tags:["All"],region:"India",amount:"₹60,000/month",url:"https://actgrants.in/"},
+  {name:"Acumen Fund",type:"Foundation",entity:"Both",tags:["Agriculture","Health"],region:"India",amount:"Varies",url:"http://acumen.org/"},
+  {name:"Adani Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://adanifoundation.org/"},
+  {name:"AI For Good: Impact Awards",type:"Prize",entity:"Both",tags:["Climate","Livelihoods"],region:"Global",amount:"Varies",url:"https://aiforgood.itu.int/"},
+  {name:"Alfred P. Sloan Foundation",type:"Foundation",entity:"Not for Profit",tags:["All"],region:"Global",amount:"$50K–$100K",url:"https://sloan.org/"},
+  {name:"Amazon India Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Gender"],region:"India",amount:"Varies",url:"http://amazon.in/"},
+  {name:"Amber Grant Foundation",type:"Foundation",entity:"Not for Profit",tags:["All"],region:"Global",amount:"$10K",url:"https://ambergrantsforwomen.com/"},
+  {name:"Andrew W. Mellon Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education"],region:"Global",amount:"Varies",url:"https://www.mellon.org/"},
+  {name:"Ashoka",type:"Foundation",entity:"Both",tags:["All"],region:"Global",amount:"Crowdfunding",url:"https://www.ashoka.org/"},
+  {name:"Asian Paints Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Health"],region:"India",amount:"Varies",url:"http://asianpaints.com/"},
+  {name:"AstraZeneca",type:"Corporation",entity:"For Profit",tags:["Health"],region:"Global",amount:"Varies",url:"https://www.astrazeneca.com/"},
+  {name:"Atlassian Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education"],region:"Global",amount:"Varies",url:"https://www.atlassianfoundation.org/"},
+  {name:"Audacious Project",type:"Prize",entity:"Both",tags:["All"],region:"Global",amount:"Varies",url:"https://audaciousproject.org/"},
+  {name:"Aurora Tech Awards",type:"Prize",entity:"Both",tags:["All"],region:"Global",amount:"$10K–$30K",url:"https://www.auroratechaward.com/"},
+  {name:"Awesome Foundation",type:"Foundation",entity:"Not for Profit",tags:["All"],region:"Global",amount:"$1K–$10K",url:"http://www.awesomefoundation.org/"},
+  {name:"AWS Impact Accelerator",type:"Corporation",entity:"Both",tags:["All"],region:"Global",amount:"$125K + $100K credits",url:"https://aws-startup-lofts.com/"},
+  {name:"Azim Premji Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education"],region:"India",amount:"Varies",url:"http://azimpremjifoundation.org/"},
+  {name:"Bajaj Auto Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education"],region:"India",amount:"Varies",url:"http://bajajauto.com/"},
+  {name:"BAND Foundation",type:"Foundation",entity:"Not for Profit",tags:["Climate"],region:"Global",amount:"Varies",url:"http://bandfdn.org/"},
+  {name:"Berger Paints Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://bergerpaints.com/"},
+  {name:"Bharti Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education"],region:"India",amount:"Varies",url:"http://bhartifoundation.org/"},
+  {name:"Bill & Melinda Gates Foundation",type:"Foundation",entity:"Not for Profit",tags:["Health"],region:"Global",amount:"$100K+",url:"https://www.gatesfoundation.org/"},
+  {name:"Biogen Foundation",type:"Foundation",entity:"Not for Profit",tags:["Health"],region:"Global",amount:"Varies",url:"https://www.biogen.com/company/biogen-foundation.html"},
+  {name:"BIRAC",type:"Corporation",entity:"Not for Profit",tags:["Health"],region:"India",amount:"Varies",url:"https://www.birac.nic.in/"},
+  {name:"Birla Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Health"],region:"India",amount:"Varies",url:"http://adityabirla.com/"},
+  {name:"Black Feminist Fund",type:"Fund",entity:"Not for Profit",tags:["Livelihoods","Gender"],region:"Global",amount:"$50K–$100K",url:"https://blackfeministfund.org/"},
+  {name:"Booz Allen Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Health"],region:"Global",amount:"$100K",url:"https://boozallenfoundation.org/"},
+  {name:"Bosch India Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://bosch.in/"},
+  {name:"Bridgeway Foundation",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods","Education","Health"],region:"Global",amount:"Varies",url:"http://www.bridgewayfoundation.org/"},
+  {name:"Calouste Gulbenkian Foundation",type:"Prize",entity:"Not for Profit",tags:["Climate"],region:"Global",amount:"$1M",url:"https://gulbenkian.pt/en/"},
+  {name:"Central Square Foundation",type:"Foundation",entity:"Both",tags:["Education"],region:"India",amount:"$10K–$100K+",url:"http://centralsquarefoundation.org/"},
+  {name:"CGIAR Inspire Challenge",type:"Prize",entity:"Not for Profit",tags:["Agriculture"],region:"Global",amount:"$100K–$250K",url:"https://bigdata.cgiar.org/"},
+  {name:"Charles Stewart Mott Foundation",type:"Foundation",entity:"Both",tags:["Climate","Education"],region:"Global",amount:"$100K+",url:"https://www.mott.org/"},
+  {name:"Cipla Foundation",type:"Foundation",entity:"Both",tags:["Health","Education"],region:"India",amount:"Varies",url:"http://cipla.com/"},
+  {name:"Cisco Foundation",type:"Corporation",entity:"Both",tags:["Livelihoods","Education"],region:"Global",amount:"$15K–$75K",url:"https://www.cisco.com/c/en/us/about/csr/impact/cisco-foundation.html"},
+  {name:"City:One Challenge",type:"Prize",entity:"Both",tags:["Climate","Livelihoods"],region:"Global",amount:"≤$100K",url:"https://challenges.cityoftomorrow.com/"},
+  {name:"Conrad N. Hilton Foundation",type:"Foundation",entity:"Both",tags:["All"],region:"Global",amount:"$2.5M",url:"https://www.hiltonfoundation.org/"},
+  {name:"D-Prize",type:"Prize",entity:"Both",tags:["Climate","Livelihoods","Education","Agriculture"],region:"Global",amount:"≤$20K",url:"https://d-prize.org/"},
+  {name:"Data Empowerment Fund",type:"Fund",entity:"Both",tags:["All"],region:"Global",amount:"$50K–$100K",url:"https://dataempowerment.fund/"},
+  {name:"David and Lucile Packard Foundation",type:"Foundation",entity:"Not for Profit",tags:["Climate"],region:"Global",amount:"Varies",url:"http://www.packard.org/"},
+  {name:"Dell Technologies Pro-Bono Consulting",type:"Corporation",entity:"Both",tags:["All"],region:"Global",amount:"Pro Bono",url:"https://www.dell.com/en-in/dt/corporate/social-impact.htm"},
+  {name:"DRK Foundation",type:"Foundation",entity:"Both",tags:["All"],region:"Global",amount:"Varies",url:"http://www.drkfoundation.org/"},
+  {name:"eBay Foundation",type:"Corporation",entity:"Both",tags:["Livelihoods","Agriculture"],region:"Global",amount:"Varies",url:"https://www.ebayinc.com/impact/ebay-org/"},
+  {name:"Echoing Green Foundation",type:"Fellowship",entity:"Not for Profit",tags:["All"],region:"Global",amount:"$80K",url:"http://www.echoinggreen.org/"},
+  {name:"Einhorn Family Charitable Trust",type:"Foundation",entity:"Not for Profit",tags:["All"],region:"Global",amount:"Varies",url:"http://www.efct.org/"},
+  {name:"Fast Forward",type:"Fellowship",entity:"Not for Profit",tags:["All"],region:"Global",amount:"$25K",url:"http://ffwd.org/"},
+  {name:"Flora Family Foundation",type:"Foundation",entity:"Both",tags:["All"],region:"Global",amount:"$30K–$120K",url:"http://www.florafamily.org/"},
+  {name:"Ford Foundation",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods","Education","Gender"],region:"Global",amount:"$50K–$1M",url:"http://www.fordfound.org/"},
+  {name:"GE Foundation",type:"Corporation",entity:"Both",tags:["Education","Health"],region:"Global",amount:"Varies",url:"https://www.ge.com/sustainability/philanthropy"},
+  {name:"Global Good Fund Fellowship",type:"Fellowship",entity:"Both",tags:["All"],region:"Global",amount:"$10K + support",url:"https://globalgoodfund.org/fellowship/fellowship-program/"},
+  {name:"Global Warming Mitigation Project",type:"Foundation",entity:"Not for Profit",tags:["Climate"],region:"Global",amount:"Varies",url:"https://www.globalwarmingmitigationproject.org/"},
+  {name:"GlobalGiving",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://globalgiving.org/"},
+  {name:"Godrej Group CSR",type:"Foundation",entity:"Both",tags:["Education"],region:"India",amount:"Varies",url:"http://godrej.com/"},
+  {name:"Google Impact Awards",type:"Fellowship",entity:"Both",tags:["Climate","Education"],region:"Global",amount:"$250K–$500K",url:"https://ai.google/social-good/impact-challenge/"},
+  {name:"Google.org Generative AI Open Call",type:"Corporation",entity:"Not for Profit",tags:["All"],region:"Global",amount:"Share of $30M",url:"http://google.org/"},
+  {name:"Grinnell Prize",type:"Prize",entity:"Not for Profit",tags:["All"],region:"Global",amount:"$50K",url:"https://www.grinnell.edu/grinnellprize"},
+  {name:"Guggenheim Partners CSR",type:"Foundation",entity:"Not for Profit",tags:["All"],region:"Global",amount:"$100K",url:"https://www.guggenheimpartners.com/"},
+  {name:"Halloran Philanthropies",type:"Foundation",entity:"Not for Profit",tags:["All","Climate"],region:"Global",amount:"$10K–$100K",url:"http://www.halloranphilanthropies.org/"},
+  {name:"HDFC Bank Parivartan",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://hdfcbank.com/"},
+  {name:"Hindustan Unilever Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Gender"],region:"India",amount:"Varies",url:"http://huelinked.com/"},
+  {name:"ICICI Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education"],region:"India",amount:"Varies",url:"http://icicifoundation.org/"},
+  {name:"IDFC Bank Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://idfc.com/"},
+  {name:"IKEA Foundation",type:"Corporation",entity:"Not for Profit",tags:["Climate","Health"],region:"Global",amount:"$1M+",url:"https://www.ikeafoundation.org/"},
+  {name:"ImagineH2O",type:"Foundation",entity:"Both",tags:["Climate","Agriculture"],region:"Global",amount:"≤$200K",url:"http://www.imagineh2o.org/"},
+  {name:"IndusInd Bank Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://indusind.com/"},
+  {name:"Infosys Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Health"],region:"India",amount:"Varies",url:"http://infosys.com/"},
+  {name:"JP Morgan Chase Foundation",type:"Corporation",entity:"Both",tags:["Livelihoods","Education","Health"],region:"Global",amount:"$20K",url:"https://impact.jpmorganchase.com/impact"},
+  {name:"Jindal Steel & Power Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://jindalsteelpower.com/"},
+  {name:"Kotak Mahindra Bank Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://kotak.com/"},
+  {name:"KPMG India Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education"],region:"India",amount:"Varies",url:"http://kpmg.com/"},
+  {name:"L&T Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://larsentoubro.com/"},
+  {name:"Leonardo DiCaprio Foundation",type:"Foundation",entity:"Not for Profit",tags:["Climate"],region:"Global",amount:"~$400K",url:"https://www.leonardodicaprio.org/"},
+  {name:"Levi Strauss Foundation",type:"Corporation",entity:"Not for Profit",tags:["Health"],region:"Global",amount:"Varies",url:"http://www.levistrauss.com/levi-strauss-foundation/"},
+  {name:"LGT Venture Philanthropy",type:"Corporation",entity:"Both",tags:["All"],region:"Global",amount:"≥$200K",url:"http://www.lgtvp.com/"},
+  {name:"Lipman Family Prize",type:"Prize",entity:"Both",tags:["All"],region:"Global",amount:"$250K + honorees",url:"https://lipmanfamilyprize.wharton.upenn.edu/prize-overview/"},
+  {name:"Luminate",type:"Foundation",entity:"Not for Profit",tags:["Climate","Education"],region:"Global",amount:"Varies",url:"https://luminategroup.com/"},
+  {name:"MacArthur Foundation",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods"],region:"Global",amount:"~$250K",url:"https://www.macfound.org/"},
+  {name:"Mahindra & Mahindra Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education"],region:"India",amount:"Varies",url:"http://mahindra.com/"},
+  {name:"Marico Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education"],region:"India",amount:"Varies",url:"http://marico.com/"},
+  {name:"Meta: Llama Impact Grants",type:"Corporation",entity:"Both",tags:["Climate","Livelihoods","Education"],region:"Global",amount:"≤$500K",url:"https://ai.meta.com/"},
+  {name:"Microsoft Philanthropies",type:"Corporation",entity:"Both",tags:["All"],region:"Global",amount:"Varies",url:"https://www.microsoft.com/"},
+  {name:"Millenium Alliance Award",type:"Prize",entity:"Both",tags:["Climate","Education","Agriculture","Health"],region:"India",amount:"$40K–$140K",url:"http://www.millenniumalliance.in/"},
+  {name:"Miller Center for Social Entrepreneurship",type:"Fellowship",entity:"Both",tags:["All"],region:"Global",amount:"Mentorship",url:"https://www.millersocent.org/"},
+  {name:"Mulago Foundation",type:"Fellowship",entity:"Both",tags:["Climate","Livelihoods","Education","Health"],region:"Global",amount:"$10K–$300K",url:"http://mulagofoundation.org/"},
+  {name:"Muthoot Finance CSR",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods","Education"],region:"India",amount:"Varies",url:"http://muthootfinance.com/"},
+  {name:"NASSCOM Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://nasscomfoundation.org/"},
+  {name:"National Endowment for Democracy",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods"],region:"Global",amount:"$50K",url:"https://www.ned.org/"},
+  {name:"NSRCEL",type:"Fellowship",entity:"Both",tags:["All"],region:"India",amount:"Varies",url:"https://www.nsrcel.org/"},
+  {name:"Oak Foundation",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods","Education","Health"],region:"Global",amount:"$25K–$7M",url:"http://oakfnd.org/"},
+  {name:"Okta for Good",type:"Fund",entity:"Both",tags:["All"],region:"Global",amount:"$25K–$400K",url:"https://www.okta.com/okta-for-good/"},
+  {name:"Omidyar Network",type:"Fund",entity:"Both",tags:["All"],region:"Global",amount:"$1M+",url:"https://www.omidyar.com/"},
+  {name:"Open Society Foundation",type:"Foundation",entity:"Both",tags:["All"],region:"Global",amount:"Varies",url:"https://www.opensocietyfoundations.org/"},
+  {name:"Pershing Square Foundation",type:"Foundation",entity:"Both",tags:["Livelihoods"],region:"Global",amount:"$200K+",url:"http://pershingsquarefoundation.org/"},
+  {name:"Reliance Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://reliancefoundation.org/"},
+  {name:"Rockefeller Foundation",type:"Foundation",entity:"Not for Profit",tags:["Health","Livelihoods"],region:"India",amount:"Varies",url:"http://rockefellerfoundation.org/"},
+  {name:"Roddenberry Foundation",type:"Foundation",entity:"Both",tags:["Climate"],region:"Global",amount:"$2.5K–$250K",url:"https://roddenberryfoundation.org/"},
+  {name:"Sall Family Foundation",type:"Foundation",entity:"Not for Profit",tags:["Climate","Livelihoods","Health"],region:"Global",amount:"~$1M",url:"https://www.sallfamily.org/"},
+  {name:"SBI Foundation",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods","Gender"],region:"India",amount:"Varies",url:"http://sbifoundation.org/"},
+  {name:"Schmidt Futures",type:"Fund",entity:"Both",tags:["All"],region:"Global",amount:"Varies",url:"https://schmidtfutures.com/"},
+  {name:"Shakti Foundation",type:"Foundation",entity:"Not for Profit",tags:["Gender"],region:"India",amount:"Varies",url:"http://shaktifoundation.org/"},
+  {name:"Shuttleworth Foundation",type:"Fellowship",entity:"Both",tags:["All"],region:"Global",amount:"$275K + flash grants",url:"https://www.shuttleworthfoundation.org/"},
+  {name:"Skoll Foundation",type:"Foundation",entity:"Both",tags:["All"],region:"Global",amount:"$2M+",url:"http://www.skollfoundation.org/"},
+  {name:"Stanford Social Innovation Fellowship",type:"Fellowship",entity:"Both",tags:["All"],region:"Global",amount:"$110K–$180K",url:"https://www.gsb.stanford.edu/stanford-gsb-experience/academic/social-innovation/fellowships/sif"},
+  {name:"Tata Steel Foundation",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods","Education"],region:"India",amount:"Varies",url:"http://tatasteel.com/"},
+  {name:"TCS Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education"],region:"India",amount:"Varies",url:"http://tcs.com/"},
+  {name:"TED Fellowship Program",type:"Fellowship",entity:"Both",tags:["All"],region:"Global",amount:"TED talk + support",url:"https://www.ted.com/participate/ted-fellows-program"},
+  {name:"Tech To The Rescue: AI For Changemakers",type:"Fellowship",entity:"Both",tags:["All"],region:"Global",amount:"Pro Bono",url:"https://techtotherescue.org/"},
+  {name:"The HCL Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education"],region:"India",amount:"Varies",url:"http://hclfoundation.org/"},
+  {name:"Tides Foundation",type:"Foundation",entity:"Not for Profit",tags:["All"],region:"Global",amount:"$30K–$60K",url:"https://www.tides.org/"},
+  {name:"USAID Development Innovation Award",type:"Prize",entity:"Both",tags:["All"],region:"Global",amount:"$200K–$5M",url:"https://www.usaid.gov/div"},
+  {name:"Wallace Global Fund",type:"Fund",entity:"Not for Profit",tags:["Climate","Health"],region:"Global",amount:"Varies",url:"https://wgf.org/"},
+  {name:"William and Flora Hewlett Foundation",type:"Foundation",entity:"Not for Profit",tags:["Climate","Livelihoods","Education"],region:"Global",amount:"$200K–$2M",url:"http://www.hewlett.org/"},
+  {name:"Wipro Foundation",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods","Health"],region:"India",amount:"Varies",url:"http://wipro.com/"},
+  {name:"Women in the Digital Economy Fund",type:"Fund",entity:"Both",tags:["Livelihoods","Education","Agriculture","Health","Gender"],region:"Global",amount:"$500K–$1.5M",url:"https://widef.global/"},
+  {name:"Y Combinator",type:"Fellowship",entity:"Both",tags:["All"],region:"Global",amount:"$150K",url:"https://www.ycombinator.com/"},
+  {name:"Youth4Climate",type:"Prize",entity:"Both",tags:["Climate","Agriculture"],region:"Global",amount:"≤$30K",url:"https://community.youth4climate.info/"},
+  {name:"Zayed Sustainability Prize",type:"Prize",entity:"Both",tags:["Climate","Education","Agriculture","Health"],region:"Global",amount:"$1M per category",url:"https://entry.zayedsustainabilityprize.com/"},
+];
+
+let activeSector = 'All';
+let activeEntity = 'All';
+
+function setSector(f, btn) {
+  activeSector = f;
+  document.querySelectorAll('.filter-row:first-child .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderOpps();
+}
+function setEntity(f, btn) {
+  activeEntity = f;
+  document.querySelectorAll('.filter-row:last-child .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderOpps();
+}
+
+function entityBadgeClass(e) {
+  if (e === 'Both') return 'badge-both';
+  if (e === 'Not for Profit') return 'badge-nfp';
+  return 'badge-fp';
+}
+
+function renderOpps() {
+  const q = document.getElementById('opp-search').value.toLowerCase();
+  const tbody = document.getElementById('opp-tbody');
+  const empty = document.getElementById('empty-state');
+  const total = OPPS.length;
+
+  const filtered = OPPS.filter(o => {
+    const matchSector = activeSector === 'All' || o.tags.includes(activeSector) || o.tags.includes('All');
+    const matchEntity = activeEntity === 'All' || o.entity === activeEntity;
+    const matchQ = !q || o.name.toLowerCase().includes(q) || o.tags.some(t => t.toLowerCase().includes(q)) || o.region.toLowerCase().includes(q) || o.type.toLowerCase().includes(q);
+    return matchSector && matchEntity && matchQ;
+  });
+
+  document.getElementById('opp-count').textContent = `${filtered.length} of ${total}`;
+
+  if (!filtered.length) {
+    tbody.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  tbody.innerHTML = filtered.map(o => `
+    <tr onclick="window.open('${o.url}','_blank')" title="Open ${o.name}">
+      <td class="opp-name"><a href="${o.url}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">${o.name}</a></td>
+      <td><span class="badge badge-type">${o.type}</span></td>
+      <td class="col-tags">${o.tags.slice(0,3).map(t => `<span class="tag-pill">${t}</span>`).join('')}</td>
+      <td class="opp-region col-region">${o.region}</td>
+      <td class="opp-amount col-amount">${o.amount}</td>
+      <td><span class="badge ${entityBadgeClass(o.entity)}">${o.entity}</span></td>
+      <td><a href="${o.url}" target="_blank" rel="noopener noreferrer" class="apply-link" onclick="event.stopPropagation()">Apply →</a></td>
+    </tr>
+  `).join('');
+}
+
+renderOpps();
+document.getElementById('mnav').querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('mnav').classList.remove('open'));
+});
+</script>
+</body>
+</html>
