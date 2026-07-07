@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: socent-git/the-delta-resource-hub
   branch: main
 
 media_folder: "images"
@@ -17,14 +18,9 @@ collections:
       - {label: "Region", name: "region", widget: "string"}
       - {label: "Amount", name: "amount", widget: "string"}
       - {label: "URL", name: "url", widget: "string"}
-      - label: "Sectors"
-        name: "tags"
-        widget: "select"
-        multiple: true
-        options: ["All", "Climate", "Livelihoods", "Education", "Health", "Agriculture", "Gender"]
 
   - name: "research"
-    label: "Research & Readings"
+    label: "Research & Resources"
     folder: "_research"
     create: true
     fields:
@@ -33,9 +29,6 @@ collections:
       - {label: "Description", name: "desc", widget: "text"}
       - {label: "Year", name: "date", widget: "string"}
       - {label: "URL", name: "url", widget: "string"}
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
 
   - name: "tools"
     label: "Tech & AI Tools"
@@ -47,6 +40,3 @@ collections:
       - {label: "Pricing", name: "pricing", widget: "select", options: ["Free", "Discount", "Paid"]}
       - {label: "Description", name: "desc", widget: "text"}
       - {label: "URL", name: "url", widget: "string"}
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
