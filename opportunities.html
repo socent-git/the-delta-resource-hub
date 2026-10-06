@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>funding opportunities — the^delta resource hub</title>
+<meta name="description" content="A searchable directory of grants, fellowships, accelerators, and impact funds for India's social entrepreneurs.">
+<link rel="canonical" href="https://the-delta-resource-hub-gl6b.vercel.app/opportunities">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9E65CX3J4W"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9E65CX3J4W');</script>
+<style>:root {
+  --red: #b21010; --red-dark: #900000;
+  --dark: #363d3f; --grey: #6e7475;
+  --body: #444; --muted: #777;
+  --light: #f5f5f5; --border: #e0e0e0;
+  --white: #ffffff;
+  --font: 'Nunito Sans', -apple-system, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); color: var(--body); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; font-size: 16px; }
+
+/* TICKER */
+.ticker-banner { background: var(--red); color: var(--white); padding: 9px 0; overflow: hidden; white-space: nowrap; display: block; text-decoration: none; }
+.ticker-track { display: inline-block; animation: ticker 28s linear infinite; font-size: 13px; font-weight: 600; font-family: var(--font); }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* NAV */
+nav { position: sticky; top: 0; z-index: 200; background: var(--white); border-bottom: 1px solid var(--border); padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { text-decoration: none; display: flex; align-items: center; }
+.nav-logo img { height: 32px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { font-size: 13px; font-weight: 600; color: var(--grey); text-decoration: none; text-transform: lowercase; transition: color 0.2s; position: relative; }
+.nav-links a:hover, .nav-links a.active { color: var(--dark); }
+.nav-links a.active::after { content: ''; position: absolute; bottom: -6px; left: 0; right: 0; height: 2px; background: var(--red); }
+.nav-cta { background: transparent !important; color: var(--red) !important; border: 1.5px solid var(--red) !important; padding: 10px 18px !important; font-size: 13px !important; font-weight: 600 !important; border-radius: 4px !important; transition: all 0.2s !important; text-transform: lowercase !important; }
+.nav-cta:hover { background: var(--red) !important; color: var(--white) !important; }
+.nav-cta.active::after { display: none !important; }
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); margin: 5px 0; }
+.mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 199; padding: 2rem 48px; flex-direction: column; overflow-y: auto; border-top: 1px solid var(--border); }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-size: 15px; font-weight: 600; color: var(--dark); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--border); text-transform: lowercase; }
+
+/* PAGE HEADER */
+.page-header { padding: 52px 48px 0; }
+.page-eyebrow { font-size: 11px; font-weight: 700; color: var(--red); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 12px; display: block; }
+.page-header h1 { font-size: clamp(34px, 3.5vw, 40px); font-weight: 800; color: var(--dark); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 12px; text-transform: lowercase; }
+.page-header p { font-size: 15px; color: var(--muted); max-width: 560px; line-height: 1.7; padding-bottom: 28px; }
+
+/* FILTER BAR */
+.filter-bar { padding: 12px 48px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; background: var(--white); position: sticky; top: 72px; z-index: 50; }
+.filter-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; width: 100%; }
+.filter-label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0.06em; text-transform: lowercase; margin-right: 4px; white-space: nowrap; }
+.filter-btn { padding: 6px 14px; font-size: 13px; font-weight: 600; border: 1.5px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s; font-family: var(--font); border-radius: 0; white-space: nowrap; text-transform: lowercase; }
+.filter-btn:hover { border-color: var(--dark); color: var(--dark); }
+.filter-btn.active { background: var(--red); border-color: var(--red); color: var(--white); }
+.filter-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.filter-count { font-size: 12px; color: var(--muted); font-weight: 600; white-space: nowrap; }
+.search-wrap { position: relative; }
+.search-wrap input { padding: 7px 12px 7px 30px; border: 1.5px solid var(--border); outline: none; font-size: 13px; font-family: var(--font); color: var(--body); width: 200px; border-radius: 0; transition: border-color 0.2s; }
+.search-wrap input:focus { border-color: var(--red); }
+.search-wrap::before { content: '⌕'; position: absolute; left: 9px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 15px; pointer-events: none; }
+
+/* CARDS */
+.cards-section { padding: 32px 48px 64px; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.card { background: var(--white); padding: 24px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 8px; border: 1.5px solid var(--border); border-radius: 0; transition: all 0.2s; }
+.card:hover { border-color: var(--red); box-shadow: 0 4px 16px rgba(178,16,16,0.08); transform: translateY(-2px); }
+.card-cat { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: lowercase; color: var(--red); }
+.card-title { font-size: 17px; font-weight: 700; color: var(--dark); line-height: 1.3; }
+.card-desc { font-size: 13px; color: var(--muted); line-height: 1.65; flex: 1; }
+.card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.card-tag { font-size: 11px; color: var(--muted); background: var(--light); padding: 3px 8px; font-weight: 600; border-radius: 0; }
+.card-link { margin-top: 10px; font-size: 13px; font-weight: 700; color: var(--red); }
+.badge { font-size: 11px; font-weight: 700; text-transform: lowercase; padding: 3px 8px; display: inline-block; border-radius: 0; }
+.badge-type { background: var(--light); color: var(--muted); }
+.badge-both { background: rgba(54,61,63,0.07); color: var(--dark); }
+.badge-nfp { background: rgba(178,16,16,0.08); color: var(--red); }
+.badge-fp { background: rgba(100,100,100,0.08); color: var(--muted); }
+.badge-free { color: #166534; background: rgba(22,101,52,0.08); }
+.badge-discount { color: var(--red); background: rgba(178,16,16,0.08); }
+.pricing { font-size: 11px; font-weight: 700; text-transform: lowercase; padding: 3px 8px; display: inline-block; border-radius: 0; width: fit-content; }
+
+/* TABLE */
+.opp-table-wrap { padding: 0 48px 64px; }
+.opp-table { width: 100%; border-collapse: collapse; border: 1.5px solid var(--border); border-radius: 0; overflow: hidden; }
+.opp-table thead { position: sticky; top: calc(72px + 90px); z-index: 40; }
+.opp-table th { padding: 12px 14px; font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0.06em; text-transform: lowercase; border-bottom: 2px solid var(--border); text-align: left; white-space: nowrap; background: var(--light); }
+.opp-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); font-size: 14px; vertical-align: middle; }
+.opp-table tbody tr { cursor: pointer; transition: background 0.15s; }
+.opp-table tbody tr:hover { background: var(--light); }
+.opp-table tbody tr:last-child td { border-bottom: none; }
+.opp-name { font-weight: 700; color: var(--dark); }
+.opp-name a { text-decoration: none; color: inherit; }
+.opp-name a:hover { color: var(--red); }
+.tag-pill { font-size: 11px; color: var(--muted); background: var(--light); padding: 2px 7px; display: inline-block; margin: 1px; border-radius: 0; font-weight: 600; }
+.apply-link { font-size: 13px; font-weight: 700; color: var(--red); text-decoration: none; white-space: nowrap; }
+.apply-link:hover { color: var(--red-dark); }
+
+/* STATES */
+.loading-state, .empty-state { padding: 64px 48px; text-align: center; color: var(--muted); font-size: 15px; }
+.empty-state h3 { font-size: 17px; margin-bottom: 8px; color: var(--dark); font-weight: 700; }
+
+/* BUTTONS */
+.btn-primary { background: var(--red); color: var(--white); padding: 0 24px; height: 45px; font-size: 13px; font-weight: 600; text-decoration: none; border: 1.5px solid var(--red); cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; border-radius: 0; font-family: var(--font); text-transform: lowercase; }
+.btn-primary:hover { background: var(--red-dark); border-color: var(--red-dark); }
+.btn-ghost { background: transparent; color: var(--dark); padding: 0 24px; height: 45px; font-size: 13px; font-weight: 600; text-decoration: none; border: 1.5px solid var(--dark); cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; border-radius: 0; font-family: var(--font); text-transform: lowercase; }
+.btn-ghost:hover { border-color: var(--red); color: var(--red); }
+
+/* FOOTER — matches thedelta.org.in exactly */
+footer { background: #1c1c1c; color: rgba(255,255,255,0.75); padding: 60px 48px 32px; }
+.footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand { display: flex; flex-direction: column; gap: 16px; }
+.footer-logo { display: inline-block; text-decoration: none; }
+.footer-logo img { height: 28px; width: auto; filter: brightness(0) invert(1); opacity: 0.9; }
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 260px; }
+.footer-col h4 { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; font-weight: 500; }
+.footer-col a:hover { color: var(--white); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.25); font-weight: 500; }
+
+/* SUPPORT PAGE */
+.section-label { padding: 32px 48px 12px; font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0.1em; text-transform: lowercase; }
+.download-btn { font-size: 13px; font-weight: 700; color: var(--red); text-decoration: none; transition: color 0.2s; }
+.download-btn:hover { color: var(--red-dark); }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav, .mobile-nav, footer { padding-left: 24px; padding-right: 24px; }
+  .nav-links { display: none; } .hamburger { display: block; }
+  .page-header, .filter-bar, .cards-section, .opp-table-wrap, .loading-state, .empty-state, .section-label { padding-left: 24px; padding-right: 24px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .col-region, .col-amount { display: none; }
+}
+@media (max-width: 600px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .col-tags { display: none; }
+  .search-wrap input { width: 130px; }
+}</style>
+</head>
+<body>
+
+<nav role="navigation">
+  <a href="https://thedelta.org.in/" target="_blank" rel="noopener noreferrer" class="nav-logo"><img src="delta-brand.webp" alt="the^delta" style="height:32px;width:auto;"></a>
+  <div class="nav-links">
+    <a href="index.html">about</a>
+    <a href="opportunities.html" class="active">funding</a>
+    <a href="research.html">research</a>
+    <a href="support.html">operations</a>
+    <a href="tools.html">tech & ai</a>
+    <a href="index.html#newsletter" class="nav-cta">funding updates</a>
+  </div>
+  <button class="hamburger" onclick="document.getElementById('mnav').classList.toggle('open')"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mnav">
+  <a href="index.html">about</a><a href="opportunities.html">funding</a>
+  <a href="research.html">research</a><a href="support.html">operations</a>
+  <a href="tools.html">tech & ai</a><a href="index.html#newsletter">funding updates</a>
+</div>
+
+<header class="page-header">
+  <span class="page-eyebrow">directory · funding</span>
+  <h1>capital for changemakers.</h1>
+  <p>A living index of grants, fellowships, accelerators, and impact funds — for nonprofit, for-profit, and hybrid ventures building India's livelihoods.</p>
+</header>
+
+<div class="filter-bar">
+  <div class="filter-row">
+    <span class="filter-label">sector</span>
+    <button class="filter-btn active" onclick="setSector('All',this)">all</button>
+    <button class="filter-btn" onclick="setSector('Climate',this)">climate</button>
+    <button class="filter-btn" onclick="setSector('Livelihoods',this)">livelihoods</button>
+    <button class="filter-btn" onclick="setSector('Education',this)">education</button>
+    <button class="filter-btn" onclick="setSector('Health',this)">health</button>
+    <button class="filter-btn" onclick="setSector('Agriculture',this)">agriculture</button>
+    <button class="filter-btn" onclick="setSector('Gender',this)">gender</button>
+    <div class="filter-right">
+      <div class="search-wrap"><input type="text" id="opp-search" placeholder="search…" oninput="renderOpps()"></div>
+      <span class="filter-count" id="opp-count">Loading…</span>
+    </div>
+  </div>
+  <div class="filter-row">
+    <span class="filter-label">entity</span>
+    <button class="filter-btn active" onclick="setEntity('All',this)">all</button>
+    <button class="filter-btn" onclick="setEntity('Not for Profit',this)">not for profit</button>
+    <button class="filter-btn" onclick="setEntity('For Profit',this)">for profit</button>
+    <button class="filter-btn" onclick="setEntity('Both',this)">both</button>
+  </div>
+</div>
+
+<main>
+  <div class="opp-table-wrap">
+    <div id="loading" class="loading-state">Loading opportunities…</div>
+    <table class="opp-table" id="opp-table" style="display:none">
+      <thead>
+        <tr>
+          <th>organisation</th><th>type</th>
+          <th class="col-tags">sectors</th>
+          <th class="col-region">region</th>
+          <th class="col-amount">amount</th>
+          <th>entity</th><th></th>
+        </tr>
+      </thead>
+      <tbody id="opp-tbody"></tbody>
+    </table>
+    <div class="empty-state" id="empty-state" style="display:none"><h3>no results found</h3><p>Try adjusting your search or filters.</p></div>
+  </div>
+</main>
+
+<footer role="contentinfo" style="background:#363d3f;font-family:'Nunito Sans',sans-serif;">
+  <div style="max-width:1200px;margin:0 auto;padding:32px 48px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <a href="https://thedelta.org.in/" target="_blank" rel="noopener noreferrer" style="display:inline-block;text-decoration:none;">
+        <img src="https://thedelta.org.in/wp-content/uploads/2025/05/bnw-logo-1024x245.webp" alt="the^delta" style="height:30px;width:auto;">
+      </a>
+      <span style="color:rgba(255,255,255,0.45);font-size:13px;font-weight:400;">building resilient livelihoods for all</span>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
+      <a href="https://thedelta.org.in/prize/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">prize</a>
+      <a href="https://thedelta.org.in/incubator/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">incubator</a>
+      <a href="https://thedelta.org.in/accelerator/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">accelerator</a>
+      <a href="https://thedelta.org.in/pragati/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">pragati</a>
+      <a href="https://thedelta.org.in/portfolio/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">portfolio</a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="https://www.linkedin.com/company/the-delta-org/posts/?feedView=all" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">follow us on</a>
+      <a href="https://www.linkedin.com/company/the-delta-org/posts/?feedView=all" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;">
+        <svg viewBox="0 0 448 512" width="18" height="18" fill="rgba(255,255,255,0.7)" xmlns="http://www.w3.org/2000/svg"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
+      </a>
+    </div>
+
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,0.1);padding:16px 48px;text-align:center;">
+    <p style="font-size:12px;color:rgba(255,255,255,0.3);font-weight:400;margin:0;">© AIC Ncore Developmental Impact Foundation</p>
+  </div>
+</footer>
+
+<script>
+const OPPS=[
+  {name:"100x Impact Accelerator",type:"Fellowship",entity:"Both",tags:["All"],region:"Global",amount:"£150K",url:"https://www.100ximpact.org/"},
+  {name:"10x Impact Labs",type:"Fellowship",entity:"Both",tags:["All"],region:"India",amount:"Monthly Stipend",url:"https://10ximpact.in/"},
+  {name:"11th Hour Project",type:"Fellowship",entity:"Not for Profit",tags:["Climate","Agriculture","Health"],region:"Global",amount:"Varies",url:"http://www.11thhourproject.org/"},
+  {name:"2X Global",type:"Fund",entity:"Both",tags:["All"],region:"Global",amount:"$100K–$500K",url:"https://www.2xglobal.org/"},
+  {name:"Abundance Foundation",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods"],region:"Global",amount:"Varies",url:"http://www.abundance.org/"},
+  {name:"ACT Grants",type:"Fellowship",entity:"Both",tags:["All"],region:"India",amount:"₹60,000/month",url:"https://actgrants.in/"},
+  {name:"Acumen Fund",type:"Foundation",entity:"Both",tags:["Agriculture","Health"],region:"India",amount:"Varies",url:"http://acumen.org/"},
+  {name:"Adani Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://adanifoundation.org/"},
+  {name:"AI For Good: Impact Awards",type:"Prize",entity:"Both",tags:["Climate","Livelihoods"],region:"Global",amount:"Varies",url:"https://aiforgood.itu.int/"},
+  {name:"Alfred P. Sloan Foundation",type:"Foundation",entity:"Not for Profit",tags:["All"],region:"Global",amount:"$50K–$100K",url:"https://sloan.org/"},
+  {name:"Amazon India Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Gender"],region:"India",amount:"Varies",url:"http://amazon.in/"},
+  {name:"Amber Grant Foundation",type:"Foundation",entity:"Not for Profit",tags:["All"],region:"Global",amount:"$10K",url:"https://ambergrantsforwomen.com/"},
+  {name:"Andrew W. Mellon Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education"],region:"Global",amount:"Varies",url:"https://www.mellon.org/"},
+  {name:"Ashoka",type:"Foundation",entity:"Both",tags:["All"],region:"Global",amount:"Crowdfunding",url:"https://www.ashoka.org/"},
+  {name:"Audacious Project",type:"Prize",entity:"Both",tags:["All"],region:"Global",amount:"Varies",url:"https://audaciousproject.org/"},
+  {name:"Awesome Foundation",type:"Foundation",entity:"Not for Profit",tags:["All"],region:"Global",amount:"$1K–$10K",url:"http://www.awesomefoundation.org/"},
+  {name:"AWS Impact Accelerator",type:"Corporation",entity:"Both",tags:["All"],region:"Global",amount:"$125K + credits",url:"https://aws-startup-lofts.com/"},
+  {name:"Azim Premji Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education"],region:"India",amount:"Varies",url:"http://azimpremjifoundation.org/"},
+  {name:"BAND Foundation",type:"Foundation",entity:"Not for Profit",tags:["Climate"],region:"Global",amount:"Varies",url:"http://bandfdn.org/"},
+  {name:"Bill & Melinda Gates Foundation",type:"Foundation",entity:"Not for Profit",tags:["Health"],region:"Global",amount:"$100K+",url:"https://www.gatesfoundation.org/"},
+  {name:"BIRAC",type:"Corporation",entity:"Not for Profit",tags:["Health"],region:"India",amount:"Varies",url:"https://www.birac.nic.in/"},
+  {name:"Black Feminist Fund",type:"Fund",entity:"Not for Profit",tags:["Livelihoods","Gender"],region:"Global",amount:"$50K–$100K",url:"https://blackfeministfund.org/"},
+  {name:"Bosch India Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://bosch.in/"},
+  {name:"Calouste Gulbenkian Foundation",type:"Prize",entity:"Not for Profit",tags:["Climate"],region:"Global",amount:"$1M",url:"https://gulbenkian.pt/en/"},
+  {name:"Central Square Foundation",type:"Foundation",entity:"Both",tags:["Education"],region:"India",amount:"$10K–$100K+",url:"http://centralsquarefoundation.org/"},
+  {name:"CGIAR Inspire Challenge",type:"Prize",entity:"Not for Profit",tags:["Agriculture"],region:"Global",amount:"$100K–$250K",url:"https://bigdata.cgiar.org/"},
+  {name:"Charles Stewart Mott Foundation",type:"Foundation",entity:"Both",tags:["Climate","Education"],region:"Global",amount:"$100K+",url:"https://www.mott.org/"},
+  {name:"Cipla Foundation",type:"Foundation",entity:"Both",tags:["Health","Education"],region:"India",amount:"Varies",url:"http://cipla.com/"},
+  {name:"Cisco Foundation",type:"Corporation",entity:"Both",tags:["Livelihoods","Education"],region:"Global",amount:"$15K–$75K",url:"https://www.cisco.com/c/en/us/about/csr/impact/cisco-foundation.html"},
+  {name:"Conrad N. Hilton Foundation",type:"Foundation",entity:"Both",tags:["All"],region:"Global",amount:"$2.5M",url:"https://www.hiltonfoundation.org/"},
+  {name:"D-Prize",type:"Prize",entity:"Both",tags:["Climate","Livelihoods","Education","Agriculture"],region:"Global",amount:"≤$20K",url:"https://d-prize.org/"},
+  {name:"Data Empowerment Fund",type:"Fund",entity:"Both",tags:["All"],region:"Global",amount:"$50K–$100K",url:"https://dataempowerment.fund/"},
+  {name:"David and Lucile Packard Foundation",type:"Foundation",entity:"Not for Profit",tags:["Climate"],region:"Global",amount:"Varies",url:"http://www.packard.org/"},
+  {name:"DRK Foundation",type:"Foundation",entity:"Both",tags:["All"],region:"Global",amount:"Varies",url:"http://www.drkfoundation.org/"},
+  {name:"Echoing Green Foundation",type:"Fellowship",entity:"Not for Profit",tags:["All"],region:"Global",amount:"$80K",url:"http://www.echoinggreen.org/"},
+  {name:"Fast Forward",type:"Fellowship",entity:"Not for Profit",tags:["All"],region:"Global",amount:"$25K",url:"http://ffwd.org/"},
+  {name:"Ford Foundation",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods","Education","Gender"],region:"Global",amount:"$50K–$1M",url:"http://www.fordfound.org/"},
+  {name:"GE Foundation",type:"Corporation",entity:"Both",tags:["Education","Health"],region:"Global",amount:"Varies",url:"https://www.ge.com/sustainability/philanthropy"},
+  {name:"Global Good Fund Fellowship",type:"Fellowship",entity:"Both",tags:["All"],region:"Global",amount:"$10K + support",url:"https://globalgoodfund.org/fellowship/fellowship-program/"},
+  {name:"GlobalGiving",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://globalgiving.org/"},
+  {name:"Godrej Group CSR",type:"Foundation",entity:"Both",tags:["Education"],region:"India",amount:"Varies",url:"http://godrej.com/"},
+  {name:"Google Impact Awards",type:"Fellowship",entity:"Both",tags:["Climate","Education"],region:"Global",amount:"$250K–$500K",url:"https://ai.google/social-good/impact-challenge/"},
+  {name:"Google.org Generative AI Open Call",type:"Corporation",entity:"Not for Profit",tags:["All"],region:"Global",amount:"Share of $30M",url:"http://google.org/"},
+  {name:"Grinnell Prize",type:"Prize",entity:"Not for Profit",tags:["All"],region:"Global",amount:"$50K",url:"https://www.grinnell.edu/grinnellprize"},
+  {name:"HDFC Bank Parivartan",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://hdfcbank.com/"},
+  {name:"ICICI Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education"],region:"India",amount:"Varies",url:"http://icicifoundation.org/"},
+  {name:"IDFC Bank Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://idfc.com/"},
+  {name:"IKEA Foundation",type:"Corporation",entity:"Not for Profit",tags:["Climate","Health"],region:"Global",amount:"$1M+",url:"https://www.ikeafoundation.org/"},
+  {name:"ImagineH2O",type:"Foundation",entity:"Both",tags:["Climate","Agriculture"],region:"Global",amount:"≤$200K",url:"http://www.imagineh2o.org/"},
+  {name:"Infosys Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Health"],region:"India",amount:"Varies",url:"http://infosys.com/"},
+  {name:"JP Morgan Chase Foundation",type:"Corporation",entity:"Both",tags:["Livelihoods","Education","Health"],region:"Global",amount:"$20K",url:"https://impact.jpmorganchase.com/impact"},
+  {name:"Kotak Mahindra Bank Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://kotak.com/"},
+  {name:"Leonardo DiCaprio Foundation",type:"Foundation",entity:"Not for Profit",tags:["Climate"],region:"Global",amount:"~$400K",url:"https://www.leonardodicaprio.org/"},
+  {name:"LGT Venture Philanthropy",type:"Corporation",entity:"Both",tags:["All"],region:"Global",amount:"≥$200K",url:"http://www.lgtvp.com/"},
+  {name:"Lipman Family Prize",type:"Prize",entity:"Both",tags:["All"],region:"Global",amount:"$250K",url:"https://lipmanfamilyprize.wharton.upenn.edu/prize-overview/"},
+  {name:"Luminate",type:"Foundation",entity:"Not for Profit",tags:["Climate","Education"],region:"Global",amount:"Varies",url:"https://luminategroup.com/"},
+  {name:"MacArthur Foundation",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods"],region:"Global",amount:"~$250K",url:"https://www.macfound.org/"},
+  {name:"Meta: Llama Impact Grants",type:"Corporation",entity:"Both",tags:["Climate","Livelihoods","Education"],region:"Global",amount:"≤$500K",url:"https://ai.meta.com/"},
+  {name:"Microsoft Philanthropies",type:"Corporation",entity:"Both",tags:["All"],region:"Global",amount:"Varies",url:"https://www.microsoft.com/"},
+  {name:"Millenium Alliance Award",type:"Prize",entity:"Both",tags:["Climate","Education","Agriculture","Health"],region:"India",amount:"$40K–$140K",url:"http://www.millenniumalliance.in/"},
+  {name:"Miller Center for Social Entrepreneurship",type:"Fellowship",entity:"Both",tags:["All"],region:"Global",amount:"Mentorship",url:"https://www.millersocent.org/"},
+  {name:"Mulago Foundation",type:"Fellowship",entity:"Both",tags:["Climate","Livelihoods","Education","Health"],region:"Global",amount:"$10K–$300K",url:"http://mulagofoundation.org/"},
+  {name:"NASSCOM Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://nasscomfoundation.org/"},
+  {name:"National Endowment for Democracy",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods"],region:"Global",amount:"$50K",url:"https://www.ned.org/"},
+  {name:"NSRCEL",type:"Fellowship",entity:"Both",tags:["All"],region:"India",amount:"Varies",url:"https://www.nsrcel.org/"},
+  {name:"Oak Foundation",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods","Education","Health"],region:"Global",amount:"$25K–$7M",url:"http://oakfnd.org/"},
+  {name:"Okta for Good",type:"Fund",entity:"Both",tags:["All"],region:"Global",amount:"$25K–$400K",url:"https://www.okta.com/okta-for-good/"},
+  {name:"Omidyar Network",type:"Fund",entity:"Both",tags:["All"],region:"Global",amount:"$1M+",url:"https://www.omidyar.com/"},
+  {name:"Open Society Foundation",type:"Foundation",entity:"Both",tags:["All"],region:"Global",amount:"Varies",url:"https://www.opensocietyfoundations.org/"},
+  {name:"Pershing Square Foundation",type:"Foundation",entity:"Both",tags:["Livelihoods"],region:"Global",amount:"$200K+",url:"http://pershingsquarefoundation.org/"},
+  {name:"Reliance Foundation",type:"Foundation",entity:"Not for Profit",tags:["Education","Livelihoods"],region:"India",amount:"Varies",url:"http://reliancefoundation.org/"},
+  {name:"Rockefeller Foundation",type:"Foundation",entity:"Not for Profit",tags:["Health","Livelihoods"],region:"India",amount:"Varies",url:"http://rockefellerfoundation.org/"},
+  {name:"Roddenberry Foundation",type:"Foundation",entity:"Both",tags:["Climate"],region:"Global",amount:"$2.5K–$250K",url:"https://roddenberryfoundation.org/"},
+  {name:"Sall Family Foundation",type:"Foundation",entity:"Not for Profit",tags:["Climate","Livelihoods","Health"],region:"Global",amount:"~$1M",url:"https://www.sallfamily.org/"},
+  {name:"SBI Foundation",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods","Gender"],region:"India",amount:"Varies",url:"http://sbifoundation.org/"},
+  {name:"Schmidt Futures",type:"Fund",entity:"Both",tags:["All"],region:"Global",amount:"Varies",url:"https://schmidtfutures.com/"},
+  {name:"Shakti Foundation",type:"Foundation",entity:"Not for Profit",tags:["Gender"],region:"India",amount:"Varies",url:"http://shaktifoundation.org/"},
+  {name:"Shuttleworth Foundation",type:"Fellowship",entity:"Both",tags:["All"],region:"Global",amount:"$275K",url:"https://www.shuttleworthfoundation.org/"},
+  {name:"Skoll Foundation",type:"Foundation",entity:"Both",tags:["All"],region:"Global",amount:"$2M+",url:"http://www.skollfoundation.org/"},
+  {name:"Stanford Social Innovation Fellowship",type:"Fellowship",entity:"Both",tags:["All"],region:"Global",amount:"$110K–$180K",url:"https://www.gsb.stanford.edu/stanford-gsb-experience/academic/social-innovation/fellowships/sif"},
+  {name:"Tata Steel Foundation",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods","Education"],region:"India",amount:"Varies",url:"http://tatasteel.com/"},
+  {name:"TED Fellowship Program",type:"Fellowship",entity:"Both",tags:["All"],region:"Global",amount:"TED talk + support",url:"https://www.ted.com/participate/ted-fellows-program"},
+  {name:"USAID Development Innovation Award",type:"Prize",entity:"Both",tags:["All"],region:"Global",amount:"$200K–$5M",url:"https://www.usaid.gov/div"},
+  {name:"Wallace Global Fund",type:"Fund",entity:"Not for Profit",tags:["Climate","Health"],region:"Global",amount:"Varies",url:"https://wgf.org/"},
+  {name:"William and Flora Hewlett Foundation",type:"Foundation",entity:"Not for Profit",tags:["Climate","Livelihoods","Education"],region:"Global",amount:"$200K–$2M",url:"http://www.hewlett.org/"},
+  {name:"Wipro Foundation",type:"Foundation",entity:"Not for Profit",tags:["Livelihoods","Health"],region:"India",amount:"Varies",url:"http://wipro.com/"},
+  {name:"Women in the Digital Economy Fund",type:"Fund",entity:"Both",tags:["Livelihoods","Education","Agriculture","Health","Gender"],region:"Global",amount:"$500K–$1.5M",url:"https://widef.global/"},
+  {name:"Y Combinator",type:"Fellowship",entity:"Both",tags:["All"],region:"Global",amount:"$150K",url:"https://www.ycombinator.com/"},
+  {name:"Zayed Sustainability Prize",type:"Prize",entity:"Both",tags:["Climate","Education","Agriculture","Health"],region:"Global",amount:"$1M per category",url:"https://entry.zayedsustainabilityprize.com/"}
+];
+let activeSector='All',activeEntity='All';
+function setSector(f,btn){activeSector=f;document.querySelectorAll('.filter-row:first-child .filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderOpps();}
+function setEntity(f,btn){activeEntity=f;document.querySelectorAll('.filter-row:last-child .filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderOpps();}
+function entityClass(e){return e==='Both'?'badge-both':e==='Not for Profit'?'badge-nfp':'badge-fp';}
+function renderOpps(){
+  document.getElementById('loading').style.display='none';
+  document.getElementById('opp-table').style.display='table';
+  const q=document.getElementById('opp-search').value.toLowerCase();
+  const filtered=OPPS.filter(o=>{
+    const tags=o.tags||[];
+    const ms=activeSector==='All'||tags.includes(activeSector)||tags.includes('All');
+    const me=activeEntity==='All'||o.entity===activeEntity;
+    const mq=!q||(o.name||'').toLowerCase().includes(q)||(o.region||'').toLowerCase().includes(q)||(o.type||'').toLowerCase().includes(q)||tags.some(t=>t.toLowerCase().includes(q));
+    return ms&&me&&mq;
+  });
+  document.getElementById('opp-count').textContent=filtered.length+' of '+OPPS.length;
+  const empty=document.getElementById('empty-state');
+  const tbody=document.getElementById('opp-tbody');
+  if(!filtered.length){tbody.innerHTML='';empty.style.display='block';return;}
+  empty.style.display='none';
+  tbody.innerHTML=filtered.map(o=>`<tr onclick="window.open('${o.url}','_blank')">
+    <td class="opp-name"><a href="${o.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${o.name}</a></td>
+    <td><span class="badge badge-type">${o.type||''}</span></td>
+    <td class="col-tags">${(o.tags||[]).slice(0,3).map(t=>'<span class="tag-pill">'+t+'</span>').join('')}</td>
+    <td class="col-region" style="font-size:13px;color:var(--muted)">${o.region||''}</td>
+    <td class="col-amount" style="font-size:13px;color:var(--muted)">${o.amount||''}</td>
+    <td><span class="badge ${entityClass(o.entity)}">${o.entity||''}</span></td>
+    <td><a href="${o.url}" target="_blank" rel="noopener" class="apply-link" onclick="event.stopPropagation()">apply →</a></td>
+  </tr>`).join('');
+}
+renderOpps();
+document.getElementById('mnav').querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mnav').classList.remove('open')));
+</script>
+</body>
+</html>
