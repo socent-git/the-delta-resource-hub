@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tech & ai tools — the^delta resource hub</title>
+<meta name="description" content="Concessional software and AI tools vetted for nonprofit and small-team use.">
+<link rel="canonical" href="https://the-delta-resource-hub-gl6b.vercel.app/tools">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9E65CX3J4W"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9E65CX3J4W');</script>
+<style>
+*, *::before, *::after {
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+}
+input, button, a, select, textarea, div, span, img, form, nav, header, footer, section, article {
+  border-radius: 0 !important;
+}
+:root {
+  --red: #b21010; --red-dark: #900000;
+  --dark: #363d3f; --grey: #6e7475;
+  --body: #444; --muted: #777;
+  --light: #f5f5f5; --border: #e0e0e0;
+  --white: #ffffff;
+  --font: 'Nunito Sans', -apple-system, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); color: var(--body); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; font-size: 16px; }
+
+/* TICKER */
+.ticker-banner { background: var(--red); color: var(--white); padding: 9px 0; overflow: hidden; white-space: nowrap; display: block; text-decoration: none; }
+.ticker-track { display: inline-block; animation: ticker 28s linear infinite; font-size: 13px; font-weight: 600; font-family: var(--font); }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* NAV */
+nav { position: sticky; top: 0; z-index: 200; background: var(--white); border-bottom: 1px solid var(--border); padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { text-decoration: none; display: flex; align-items: center; }
+.nav-logo img { height: 32px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { font-size: 13px; font-weight: 600; color: var(--grey); text-decoration: none; text-transform: lowercase; transition: color 0.2s; position: relative; }
+.nav-links a:hover, .nav-links a.active { color: var(--dark); }
+.nav-links a.active::after { content: ''; position: absolute; bottom: -6px; left: 0; right: 0; height: 2px; background: var(--red); }
+
+.nav-cta { background: transparent !important; color: var(--red) !important; border: 1.5px solid var(--red) !important; padding: 10px 18px !important; font-size: 13px !important; font-weight: 600 !important; border-radius: 0 !important; transition: all 0.2s !important; text-transform: lowercase !important; }
+.nav-cta:hover { background: var(--red) !important; color: var(--white) !important; }
+.nav-cta.active::after { display: none !important; }
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); margin: 5px 0; }
+.mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 199; padding: 2rem 48px; flex-direction: column; overflow-y: auto; border-top: 1px solid var(--border); }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-size: 15px; font-weight: 600; color: var(--dark); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--border); text-transform: lowercase; }
+
+/* PAGE HEADER */
+.page-header { padding: 52px 48px 0; }
+.page-eyebrow { font-size: 11px; font-weight: 700; color: var(--red); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 12px; display: block; }
+.page-header h1 { font-size: clamp(34px, 3.5vw, 40px); font-weight: 800; color: var(--dark); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 12px; text-transform: lowercase; }
+.page-header p { font-size: 15px; color: var(--muted); max-width: 560px; line-height: 1.7; padding-bottom: 28px; }
+
+/* FILTER BAR */
+.filter-bar { padding: 12px 48px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; background: var(--white); position: sticky; top: 72px; z-index: 50; }
+.filter-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; width: 100%; }
+.filter-label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0.06em; text-transform: lowercase; margin-right: 4px; white-space: nowrap; }
+.filter-btn { padding: 6px 14px; font-size: 13px; font-weight: 600; border: 1.5px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s; font-family: var(--font); border-radius: 0; white-space: nowrap; text-transform: lowercase; }
+.filter-btn:hover { border-color: var(--dark); color: var(--dark); }
+.filter-btn.active { background: var(--red); border-color: var(--red); color: var(--white); }
+.filter-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.filter-count { font-size: 12px; color: var(--muted); font-weight: 600; white-space: nowrap; }
+.search-wrap { position: relative; }
+.search-wrap input { padding: 7px 12px 7px 30px; border: 1.5px solid var(--border); outline: none; font-size: 13px; font-family: var(--font); color: var(--body); width: 200px; border-radius: 0; transition: border-color 0.2s; }
+.search-wrap input:focus { border-color: var(--red); }
+.search-wrap::before { content: '⌕'; position: absolute; left: 9px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 15px; pointer-events: none; }
+
+/* CARDS */
+.cards-section { padding: 32px 48px 64px; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.card { background: var(--white); padding: 24px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 8px; border: 1.5px solid var(--border); border-radius: 0; transition: all 0.2s; }
+.card:hover { border-color: var(--red); box-shadow: 0 4px 16px rgba(178,16,16,0.08); transform: translateY(-2px); }
+.card-cat { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: lowercase; color: var(--red); }
+.card-title { font-size: 17px; font-weight: 700; color: var(--dark); line-height: 1.3; }
+.card-desc { font-size: 13px; color: var(--muted); line-height: 1.65; flex: 1; }
+.card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.card-tag { font-size: 11px; color: var(--muted); background: var(--light); padding: 3px 8px; font-weight: 600; border-radius: 0; }
+.card-link { margin-top: 10px; font-size: 13px; font-weight: 700; color: var(--red); }
+.badge { font-size: 11px; font-weight: 700; text-transform: lowercase; padding: 3px 8px; display: inline-block; border-radius: 0; }
+.badge-type { background: var(--light); color: var(--muted); }
+.badge-both { background: rgba(54,61,63,0.07); color: var(--dark); }
+.badge-nfp { background: rgba(178,16,16,0.08); color: var(--red); }
+.badge-fp { background: rgba(100,100,100,0.08); color: var(--muted); }
+.badge-free { color: #166534; background: rgba(22,101,52,0.08); }
+.badge-discount { color: var(--red); background: rgba(178,16,16,0.08); }
+.pricing { font-size: 11px; font-weight: 700; text-transform: lowercase; padding: 3px 8px; display: inline-block; border-radius: 0; width: fit-content; }
+
+/* TABLE */
+.opp-table-wrap { padding: 0 48px 64px; }
+.opp-table { width: 100%; border-collapse: collapse; border: 1.5px solid var(--border); border-radius: 0; overflow: hidden; }
+.opp-table thead { position: sticky; top: calc(72px + 90px); z-index: 40; }
+.opp-table th { padding: 12px 14px; font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0.06em; text-transform: lowercase; border-bottom: 2px solid var(--border); text-align: left; white-space: nowrap; background: var(--light); }
+.opp-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); font-size: 14px; vertical-align: middle; }
+.opp-table tbody tr { cursor: pointer; transition: background 0.15s; }
+.opp-table tbody tr:hover { background: var(--light); }
+.opp-table tbody tr:last-child td { border-bottom: none; }
+.opp-name { font-weight: 700; color: var(--dark); }
+.opp-name a { text-decoration: none; color: inherit; }
+.opp-name a:hover { color: var(--red); }
+.tag-pill { font-size: 11px; color: var(--muted); background: var(--light); padding: 2px 7px; display: inline-block; margin: 1px; border-radius: 0; font-weight: 600; }
+.apply-link { font-size: 13px; font-weight: 700; color: var(--red); text-decoration: none; white-space: nowrap; }
+.apply-link:hover { color: var(--red-dark); }
+
+/* STATES */
+.loading-state, .empty-state { padding: 64px 48px; text-align: center; color: var(--muted); font-size: 15px; }
+.empty-state h3 { font-size: 17px; margin-bottom: 8px; color: var(--dark); font-weight: 700; }
+
+/* BUTTONS */
+.btn-primary { background: var(--red); color: var(--white); padding: 0 24px; height: 45px; font-size: 13px; font-weight: 600; text-decoration: none; border: 1.5px solid var(--red); cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; border-radius: 0; font-family: var(--font); text-transform: lowercase; }
+.btn-primary:hover { background: var(--red-dark); border-color: var(--red-dark); }
+.btn-ghost { background: transparent; color: var(--dark); padding: 0 24px; height: 45px; font-size: 13px; font-weight: 600; text-decoration: none; border: 1.5px solid var(--dark); cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; border-radius: 0; font-family: var(--font); text-transform: lowercase; }
+.btn-ghost:hover { border-color: var(--red); color: var(--red); }
+
+/* FOOTER — matches thedelta.org.in exactly */
+footer { background: #1c1c1c; color: rgba(255,255,255,0.75); padding: 60px 48px 32px; }
+.footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand { display: flex; flex-direction: column; gap: 16px; }
+.footer-logo { display: inline-block; text-decoration: none; }
+.footer-logo img { height: 28px; width: auto; filter: brightness(0) invert(1); opacity: 0.9; }
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 260px; }
+.footer-col h4 { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; font-weight: 500; }
+.footer-col a:hover { color: var(--white); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.25); font-weight: 500; }
+
+/* SUPPORT PAGE */
+.section-label { padding: 32px 48px 12px; font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0.1em; text-transform: lowercase; }
+.download-btn { font-size: 13px; font-weight: 700; color: var(--red); text-decoration: none; transition: color 0.2s; }
+.download-btn:hover { color: var(--red-dark); }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav, .mobile-nav, footer { padding-left: 24px; padding-right: 24px; }
+  .nav-links { display: none; } .hamburger { display: block; }
+  .page-header, .filter-bar, .cards-section, .opp-table-wrap, .loading-state, .empty-state, .section-label { padding-left: 24px; padding-right: 24px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .col-region, .col-amount { display: none; }
+}
+@media (max-width: 600px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .col-tags { display: none; }
+  .search-wrap input { width: 130px; }
+}
+
+</style>
+</head>
+<body>
+
+<nav role="navigation">
+  <a href="https://thedelta.org.in/" target="_blank" rel="noopener noreferrer" class="nav-logo"><img src="delta-brand.webp" alt="the^delta" style="height:32px;width:auto;"></a>
+  <div class="nav-links">
+    <a href="index.html">about</a><a href="opportunities.html">funding</a>
+    <a href="research.html">research</a><a href="support.html">operations</a>
+    <a href="tools.html" class="active">tech & ai</a>
+    <a href="index.html#newsletter" class="nav-cta">funding updates</a>
+  </div>
+  <button class="hamburger" onclick="document.getElementById('mnav').classList.toggle('open')"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mnav">
+  <a href="index.html">about</a><a href="opportunities.html">funding</a>
+  <a href="research.html">research</a><a href="support.html">operations</a>
+  <a href="tools.html">tech & ai</a><a href="index.html#newsletter">funding updates</a>
+</div>
+
+<header class="page-header">
+  <span class="page-eyebrow">stack · technology</span>
+  <h1>tools built for lean, high-impact teams.</h1>
+  <p>Concessional software and AI tools — vetted for nonprofit and small-team use, from project management to impact measurement.</p>
+</header>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="setFilter('All',this)">all</button>
+  <button class="filter-btn" onclick="setFilter('AI & Automation',this)">ai</button>
+  <button class="filter-btn" onclick="setFilter('Project Management',this)">projects</button>
+  <button class="filter-btn" onclick="setFilter('Data & M&E',this)">data</button>
+  <button class="filter-btn" onclick="setFilter('Communications',this)">comms</button>
+  <button class="filter-btn" onclick="setFilter('Finance',this)">finance</button>
+  <button class="filter-btn" onclick="setFilter('Design',this)">design</button>
+  <button class="filter-btn" onclick="setFilter('AI & Agents',this)">ai & agents</button>
+  <button class="filter-btn" onclick="setFilter('Build & Dev',this)">build & dev</button>
+  <button class="filter-btn" onclick="setFilter('Open Data · India',this)">open data</button>
+  <button class="filter-btn" onclick="setFilter('Privacy',this)">privacy</button>
+  <div class="filter-right">
+    <div class="search-wrap"><input type="text" id="tool-search" placeholder="search…" oninput="renderTools()"></div>
+    <span class="filter-count" id="tool-count">— of —</span>
+  </div>
+</div>
+
+<main>
+<section class="cards-section">
+  <div class="cards-grid" id="tools-grid" role="list"></div>
+  <div class="empty-state" id="tools-empty" style="display:none"><p>no results found.</p></div>
+</section>
+</main>
+
+<footer role="contentinfo" style="background:#363d3f;font-family:'Nunito Sans',sans-serif;">
+  <div style="max-width:1200px;margin:0 auto;padding:32px 48px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <a href="https://thedelta.org.in/" target="_blank" rel="noopener noreferrer" style="display:inline-block;text-decoration:none;">
+        <img src="https://thedelta.org.in/wp-content/uploads/2025/05/bnw-logo-1024x245.webp" alt="the^delta" style="height:30px;width:auto;">
+      </a>
+      <span style="color:rgba(255,255,255,0.45);font-size:13px;font-weight:400;">building resilient livelihoods for all</span>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
+      <a href="https://thedelta.org.in/prize/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">prize</a>
+      <a href="https://thedelta.org.in/incubator/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">incubator</a>
+      <a href="https://thedelta.org.in/accelerator/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">accelerator</a>
+      <a href="https://thedelta.org.in/pragati/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">pragati</a>
+      <a href="https://thedelta.org.in/portfolio/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">portfolio</a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="https://www.linkedin.com/company/the-delta-org/posts/?feedView=all" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">follow us on</a>
+      <a href="https://www.linkedin.com/company/the-delta-org/posts/?feedView=all" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;">
+        <svg viewBox="0 0 448 512" width="18" height="18" fill="rgba(255,255,255,0.7)" xmlns="http://www.w3.org/2000/svg"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
+      </a>
+    </div>
+
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,0.1);padding:16px 48px;text-align:center;">
+    <p style="font-size:12px;color:rgba(255,255,255,0.3);font-weight:400;margin:0;">© AIC Ncore Developmental Impact Foundation</p>
+  </div>
+</footer>
+
+<script>
+const TOOLS=[
+  {name:"Claude (Anthropic)",cat:"AI & Automation",pricing:"Discount",desc:"Advanced AI assistant for writing, analysis, research synthesis, and operational tasks. Nonprofit discount via API.",tags:["AI","Writing","Research"],url:"https://anthropic.com"},
+  {name:"ChatGPT (OpenAI)",cat:"AI & Automation",pricing:"Discount",desc:"AI assistant for drafting communications, analysing data, summarising reports. Nonprofit discount available.",tags:["AI","Writing","Automation"],url:"https://openai.com"},
+  {name:"Google Gemini",cat:"AI & Automation",pricing:"Free",desc:"Google's AI assistant integrated with Workspace — useful for drafting documents, summarising research, and data analysis.",tags:["AI","Google","Automation"],url:"https://gemini.google.com"},
+  {name:"Perplexity AI",cat:"AI & Automation",pricing:"Free",desc:"AI-powered research assistant that cites sources — useful for rapid landscape research, policy analysis, and sector deep-dives.",tags:["AI","Research","Search"],url:"https://perplexity.ai"},
+  {name:"Notion AI",cat:"AI & Automation",pricing:"Paid",desc:"AI writing and knowledge management built into Notion — useful for maintaining internal wikis and drafting operational documents.",tags:["AI","Knowledge","Writing"],url:"https://notion.so"},
+  {name:"Make (Integromat)",cat:"AI & Automation",pricing:"Free",desc:"No-code workflow automation platform for connecting apps and automating data flows.",tags:["Automation","No-code","Workflows"],url:"https://make.com"},
+  {name:"Zapier",cat:"AI & Automation",pricing:"Discount",desc:"Automation platform connecting 6,000+ apps. Nonprofit discount available.",tags:["Automation","Integration","No-code"],url:"https://zapier.com"},
+  {name:"Gooey.AI",cat:"AI & Automation",pricing:"Free",desc:"Pro bono AI tools for social sector organisations — document analysis, bulk processing, and WhatsApp automation.",tags:["AI","Pro Bono","WhatsApp"],url:"https://gooey.ai"},
+  {name:"Otter.ai",cat:"AI & Automation",pricing:"Free",desc:"AI-powered transcription and meeting notes. Useful for transcribing interviews, focus groups, and board meetings.",tags:["Transcription","AI","Meetings"],url:"https://otter.ai"},
+  {name:"Glide",cat:"AI & Automation",pricing:"Discount",desc:"No-code app builder that turns spreadsheets into mobile apps. Useful for building beneficiary-facing tools.",tags:["No-code","Apps","Mobile"],url:"https://glideapps.com"},
+  {name:"Power Automate",cat:"AI & Automation",pricing:"Discount",desc:"Workflow automation within Microsoft ecosystem. Included in Microsoft 365 for Nonprofits.",tags:["Automation","Microsoft","Workflows"],url:"https://powerautomate.microsoft.com"},
+  {name:"Asana",cat:"Project Management",pricing:"Discount",desc:"Project and task management platform. 50% nonprofit discount available.",tags:["Projects","Tasks","Teams"],url:"https://asana.com"},
+  {name:"Notion",cat:"Project Management",pricing:"Discount",desc:"All-in-one workspace for notes, databases, and project management. Nonprofit discount available.",tags:["Projects","Knowledge","Databases"],url:"https://notion.so"},
+  {name:"Trello",cat:"Project Management",pricing:"Free",desc:"Visual Kanban-based project management. Free plan suitable for small teams.",tags:["Projects","Kanban","Visual"],url:"https://trello.com"},
+  {name:"Monday.com",cat:"Project Management",pricing:"Discount",desc:"Work management platform with strong visual reporting. Nonprofit discount available.",tags:["Projects","Reporting","Teams"],url:"https://monday.com"},
+  {name:"ClickUp",cat:"Project Management",pricing:"Free",desc:"Feature-rich project management tool with a generous free plan.",tags:["Projects","Tasks","Free"],url:"https://clickup.com"},
+  {name:"Basecamp",cat:"Project Management",pricing:"Free",desc:"Free for nonprofits. Simple project and team communication tool.",tags:["Projects","Communication","Free"],url:"https://basecamp.com"},
+  {name:"Airtable",cat:"Project Management",pricing:"Discount",desc:"Spreadsheet-database hybrid for managing complex data — beneficiary tracking, grant databases, programme monitoring.",tags:["Database","Projects","Data"],url:"https://airtable.com"},
+  {name:"Miro",cat:"Project Management",pricing:"Discount",desc:"Online whiteboard for strategy workshops, theory of change development, and distributed team collaboration.",tags:["Whiteboard","Strategy","Collaboration"],url:"https://miro.com"},
+  {name:"Zoho One for Nonprofits",cat:"Project Management",pricing:"Discount",desc:"Suite of 45+ business apps at nonprofit pricing — CRM, project management, accounting, and HR.",tags:["Suite","CRM","Finance"],url:"https://zoho.com/nonprofits"},
+  {name:"Dropbox Business",cat:"Project Management",pricing:"Discount",desc:"Cloud storage and file sharing. Nonprofit discount available.",tags:["Storage","Files","Collaboration"],url:"https://dropbox.com"},
+  {name:"1Password Teams",cat:"Project Management",pricing:"Discount",desc:"Password management for teams. Critical for organisational cybersecurity.",tags:["Security","Passwords","Teams"],url:"https://1password.com"},
+  {name:"Google Data Studio (Looker)",cat:"Data & M&E",pricing:"Free",desc:"Free data visualisation and reporting tool connecting to Google Sheets and BigQuery.",tags:["Data","Visualisation","Reporting"],url:"https://lookerstudio.google.com"},
+  {name:"Kobo Toolbox",cat:"Data & M&E",pricing:"Free",desc:"Free data collection platform designed for humanitarian and development contexts — offline-capable mobile forms.",tags:["Data Collection","Field","M&E"],url:"https://kobotoolbox.org"},
+  {name:"ODK (Open Data Kit)",cat:"Data & M&E",pricing:"Free",desc:"Open-source mobile data collection platform widely used in the Indian social sector.",tags:["Data Collection","Open Source","Field"],url:"https://getodk.org"},
+  {name:"Tableau Public",cat:"Data & M&E",pricing:"Free",desc:"Free data visualisation platform for creating and sharing interactive dashboards.",tags:["Data","Visualisation","Public"],url:"https://public.tableau.com"},
+  {name:"Power BI",cat:"Data & M&E",pricing:"Discount",desc:"Microsoft's data analytics platform. Nonprofit discount via Microsoft for Nonprofits.",tags:["Data","Analytics","Microsoft"],url:"https://powerbi.microsoft.com"},
+  {name:"DHIS2",cat:"Data & M&E",pricing:"Free",desc:"Open-source health and development data management system — widely used by Indian NGOs.",tags:["Data","Health","Open Source"],url:"https://dhis2.org"},
+  {name:"CommCare",cat:"Data & M&E",pricing:"Discount",desc:"Mobile data collection and case management platform. Nonprofit pricing available.",tags:["Data Collection","Case Management","Mobile"],url:"https://dimagi.com/commcare"},
+  {name:"SurveyCTO",cat:"Data & M&E",pricing:"Paid",desc:"Professional-grade mobile data collection with strong offline capabilities and data quality controls.",tags:["Data Collection","Research","Quality"],url:"https://surveycto.com"},
+  {name:"Salesforce Nonprofit Success Pack",cat:"Data & M&E",pricing:"Free",desc:"10 free Salesforce licences for eligible nonprofits through the Power of Us Programme.",tags:["CRM","Donors","Salesforce"],url:"https://www.salesforce.org/nonprofit"},
+  {name:"Typeform",cat:"Data & M&E",pricing:"Discount",desc:"Conversational form and survey platform — beneficiary feedback, programme applications, and stakeholder surveys.",tags:["Forms","Surveys","Data"],url:"https://typeform.com"},
+  {name:"Mailchimp",cat:"Communications",pricing:"Free",desc:"Email marketing platform with a free plan for up to 500 contacts.",tags:["Email","Marketing","Newsletter"],url:"https://mailchimp.com"},
+  {name:"Brevo (Sendinblue)",cat:"Communications",pricing:"Free",desc:"Email and SMS marketing platform with a generous free plan — WhatsApp integration included.",tags:["Email","SMS","WhatsApp"],url:"https://brevo.com"},
+  {name:"Buffer",cat:"Communications",pricing:"Free",desc:"Social media scheduling and analytics. Free plan for up to 3 channels.",tags:["Social Media","Scheduling","Analytics"],url:"https://buffer.com"},
+  {name:"Hootsuite",cat:"Communications",pricing:"Discount",desc:"Social media management platform. Nonprofit discount available.",tags:["Social Media","Management","Teams"],url:"https://hootsuite.com"},
+  {name:"Zoom",cat:"Communications",pricing:"Discount",desc:"Video conferencing platform. Significant nonprofit discount through Zoom for Good.",tags:["Video","Meetings","Remote"],url:"https://zoom.us"},
+  {name:"Google Workspace for Nonprofits",cat:"Communications",pricing:"Free",desc:"Full Google Workspace free for eligible nonprofits — Gmail, Drive, Docs, Meet, Calendar.",tags:["Productivity","Email","Collaboration"],url:"https://workspace.google.com/nonprofits"},
+  {name:"Microsoft 365 for Nonprofits",cat:"Communications",pricing:"Discount",desc:"Microsoft Office suite at deeply discounted rates for eligible nonprofits.",tags:["Productivity","Microsoft","Collaboration"],url:"https://www.microsoft.com/en-in/nonprofits"},
+  {name:"Slack",cat:"Communications",pricing:"Discount",desc:"Team messaging platform. Pro plan discount for nonprofits.",tags:["Messaging","Teams","Communication"],url:"https://slack.com"},
+  {name:"WhatsApp Business API",cat:"Communications",pricing:"Free",desc:"Essential for beneficiary communication in India — automated and bulk messaging for programme delivery.",tags:["WhatsApp","Messaging","India"],url:"https://business.whatsapp.com"},
+  {name:"HubSpot for Nonprofits",cat:"Communications",pricing:"Discount",desc:"CRM, email marketing, and content management. 40% discount for nonprofits.",tags:["CRM","Email","Marketing"],url:"https://hubspot.com"},
+  {name:"Loom",cat:"Communications",pricing:"Free",desc:"Async video messaging. Free for nonprofits. Useful for internal training and remote team communication.",tags:["Video","Async","Communication"],url:"https://loom.com"},
+  {name:"Calendly",cat:"Communications",pricing:"Free",desc:"Meeting scheduling automation. Free plan for individuals.",tags:["Scheduling","Meetings","Automation"],url:"https://calendly.com"},
+  {name:"Grammarly Business",cat:"Communications",pricing:"Discount",desc:"AI writing assistant for grammar, clarity, and tone. Useful for donor reports and grant proposals.",tags:["Writing","AI","Communications"],url:"https://grammarly.com"},
+  {name:"Freshdesk",cat:"Communications",pricing:"Free",desc:"Customer support platform with a free plan. Useful for managing beneficiary inquiries and helpline operations.",tags:["Support","Helpdesk","Free"],url:"https://freshdesk.com"},
+  {name:"Wave Accounting",cat:"Finance",pricing:"Free",desc:"Free accounting software with invoicing, expense tracking, and basic reporting.",tags:["Accounting","Free","Finance"],url:"https://waveapps.com"},
+  {name:"Tally Prime",cat:"Finance",pricing:"Paid",desc:"India's most widely used accounting software — essential for GST compliance and statutory reporting.",tags:["Accounting","India","GST"],url:"https://tallysolutions.com"},
+  {name:"QuickBooks",cat:"Finance",pricing:"Discount",desc:"Cloud accounting with nonprofit pricing — multi-grant financial management and audit preparation.",tags:["Accounting","Grants","Reporting"],url:"https://quickbooks.intuit.com"},
+  {name:"Razorpay",cat:"Finance",pricing:"Paid",desc:"India's leading payment gateway — accepts UPI, cards, net banking. Reduced fees for registered nonprofits.",tags:["Payments","Donations","India"],url:"https://razorpay.com"},
+  {name:"GiveIndia Portal",cat:"Finance",pricing:"Free",desc:"India's leading giving platform — verified nonprofits receive tax-exempt donations from individuals and corporates.",tags:["Donations","India","80G"],url:"https://giveindia.org"},
+  {name:"DocuSign",cat:"Finance",pricing:"Discount",desc:"Digital signature platform. Nonprofit pricing available. Essential for grant agreements and MOUs.",tags:["Signatures","Legal","Documents"],url:"https://docusign.com"},
+  {name:"Canva for Nonprofits",cat:"Design",pricing:"Free",desc:"Free Canva Pro access for registered nonprofits — graphics, presentations, reports, and print materials.",tags:["Design","Visual","Free"],url:"https://canva.com/nonprofits"},
+  {name:"Adobe Express",cat:"Design",pricing:"Discount",desc:"Adobe's accessible design tool with nonprofit pricing — quick graphic creation and video editing.",tags:["Design","Adobe","Visual"],url:"https://www.adobe.com/express/"},
+  {name:"Figma",cat:"Design",pricing:"Discount",desc:"Collaborative design platform. Nonprofit discount available.",tags:["Design","UX","Collaborative"],url:"https://figma.com"},
+  {name:"Piktochart",cat:"Design",pricing:"Discount",desc:"Infographic and report design tool — turning M&E data into visually compelling reports.",tags:["Infographics","Reports","Visual"],url:"https://piktochart.com"},
+  {name:"Visme",cat:"Design",pricing:"Discount",desc:"Visual content creation for presentations, infographics, and reports. Nonprofit discount available.",tags:["Presentations","Design","Visual"],url:"https://visme.co"},
+  {name:"Solstone",cat:"AI & Agents",pricing:"Free",desc:"Local-first, open-source memory layer for AI agents. Nothing leaves your machine — ideal for organisations handling sensitive beneficiary data.",tags:["AI","Open Source","Privacy"],url:"https://solstone.app/"},
+  {name:"Calibrate (ARTPARK)",cat:"AI & Agents",pricing:"Free",desc:"Open-source framework to evaluate AI and voice agents. Uses an LLM judge based on a set rubric, reviewed by human annotators — making it applicable at scale. Also usable as a Claude skill.",tags:["AI","Evaluation","Open Source"],url:"https://fossunited.org/c/indiafoss/2026/cfp/7vvvus5cp0"},
+  {name:"Gooey.ai",cat:"AI & Agents",pricing:"Free",desc:"Low-code AI workflow builder for WhatsApp, voice, and SMS. Already used by Digital Green and Teach for India for last-mile programme delivery.",tags:["AI","WhatsApp","No-code"],url:"https://gooey.ai/"},
+  {name:"Xyne Spaces (Juspay)",cat:"AI & Agents",pricing:"Free",desc:"Self-hostable workspace that pulls Slack, Gmail, Jira and more into one AI-searchable layer — with built-in agents and MCP support.",tags:["AI","Agents","Self-hosted"],url:"https://xynehq.com/"},
+  {name:"Frappe Builder",cat:"Build & Dev",pricing:"Free",desc:"Open-source visual website builder calibrated for production-level, high-quality websites. No vendor lock-in.",tags:["Open Source","Website","No-code"],url:"https://frappe.io/builder"},
+  {name:"Bruno",cat:"Build & Dev",pricing:"Free",desc:"Offline, local-first API testing tool — a Postman alternative that keeps a full history of changes and never sends your data to the cloud.",tags:["API","Dev","Open Source"],url:"https://www.usebruno.com/"},
+  {name:"Data for India",cat:"Open Data · India",pricing:"Free",desc:"Open datasets on India — covering districts, demographics, agriculture, and social indicators. Useful for proposals, reports, and programme design.",tags:["Data","India","Open Source"],url:"https://www.dataforindia.com/"},
+  {name:"DataMeet",cat:"Open Data · India",pricing:"Free",desc:"India's open data community — datasets, maps, and tools covering health, education, governance, and more.",tags:["Data","India","Community"],url:"https://datameet.org/"},
+  {name:"BharatViz",cat:"Open Data · India",pricing:"Free",desc:"No-code India map visualisations using open data — handy for district-level programme mapping, proposals, and impact reports.",tags:["Data","Maps","India"],url:"https://bharatviz.org/"},
+  {name:"Diagram Chasing",cat:"Open Data · India",pricing:"Free",desc:"Open datasets and no-code visualisation tools focused on India — useful for sector analysis and data storytelling.",tags:["Data","Visualisation","India"],url:"https://diagramchasing.fun/"},
+  {name:"Yoti",cat:"Privacy",pricing:"Paid",desc:"Privacy-focused age and identity verification via face scan. Useful for organisations running programmes that require verified beneficiary identity.",tags:["Privacy","Identity","Verification"],url:"https://www.yoti.com/"}
+];
+
+let activeFilter='All';
+function setFilter(f,btn){
+  activeFilter=f;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderTools();
+}
+function renderTools(){
+  const q=document.getElementById('tool-search').value.toLowerCase();
+  const grid=document.getElementById('tools-grid');
+  const empty=document.getElementById('tools-empty');
+  const filtered=TOOLS.filter(t=>{
+    const mf=activeFilter==='All'||t.cat===activeFilter;
+    const mq=!q||(t.name||'').toLowerCase().includes(q)||(t.cat||'').toLowerCase().includes(q)||(t.desc||'').toLowerCase().includes(q)||(t.tags||[]).some(tag=>tag.toLowerCase().includes(q));
+    return mf&&mq;
+  });
+  document.getElementById('tool-count').textContent=filtered.length+' of '+TOOLS.length;
+  if(!filtered.length){grid.innerHTML='';empty.style.display='block';return;}
+  empty.style.display='none';
+  const pc={Free:'badge-free',Discount:'badge-discount',Paid:'badge-type'};
+  grid.innerHTML=filtered.map(t=>`
+    <a href="${t.url}" target="_blank" rel="noopener noreferrer" class="card" role="listitem">
+      <div class="card-cat">${t.cat}</div>
+      <div class="card-title">${t.name}</div>
+      <span class="pricing ${pc[t.pricing]||'badge-type'}">${t.pricing==='Discount'?'nonprofit discount':t.pricing.toLowerCase()}</span>
+      <div class="card-desc">${t.desc}</div>
+      <div class="card-tags">${(t.tags||[]).map(tag=>'<span class="card-tag">'+tag+'</span>').join('')}</div>
+      <div class="card-link">learn more →</div>
+    </a>`).join('');
+}
+renderTools();
+document.getElementById('mnav').querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mnav').classList.remove('open')));
+</script>
+</body>
+</html>
