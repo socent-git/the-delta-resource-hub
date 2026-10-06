@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>operational support — the^delta resource hub</title>
+<meta name="description" content="Ready-to-use policies, templates, and operational resources for social enterprises and nonprofits in India.">
+<link rel="canonical" href="https://the-delta-resource-hub-gl6b.vercel.app/support">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9E65CX3J4W"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9E65CX3J4W');</script>
+<style>:root {
+  --red: #b21010; --red-dark: #900000;
+  --dark: #363d3f; --grey: #6e7475;
+  --body: #444; --muted: #777;
+  --light: #f5f5f5; --border: #e0e0e0;
+  --white: #ffffff;
+  --font: 'Nunito Sans', -apple-system, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); color: var(--body); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; font-size: 16px; }
+
+/* TICKER */
+.ticker-banner { background: var(--red); color: var(--white); padding: 9px 0; overflow: hidden; white-space: nowrap; display: block; text-decoration: none; }
+.ticker-track { display: inline-block; animation: ticker 28s linear infinite; font-size: 13px; font-weight: 600; font-family: var(--font); }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* NAV */
+nav { position: sticky; top: 0; z-index: 200; background: var(--white); border-bottom: 1px solid var(--border); padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { text-decoration: none; display: flex; align-items: center; }
+.nav-logo img { height: 32px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { font-size: 13px; font-weight: 600; color: var(--grey); text-decoration: none; text-transform: lowercase; transition: color 0.2s; position: relative; }
+.nav-links a:hover, .nav-links a.active { color: var(--dark); }
+.nav-links a.active::after { content: ''; position: absolute; bottom: -6px; left: 0; right: 0; height: 2px; background: var(--red); }
+.nav-cta { background: transparent !important; color: var(--red) !important; border: 1.5px solid var(--red) !important; padding: 10px 18px !important; font-size: 13px !important; font-weight: 600 !important; border-radius: 4px !important; transition: all 0.2s !important; text-transform: lowercase !important; }
+.nav-cta:hover { background: var(--red) !important; color: var(--white) !important; }
+.nav-cta.active::after { display: none !important; }
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); margin: 5px 0; }
+.mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 199; padding: 2rem 48px; flex-direction: column; overflow-y: auto; border-top: 1px solid var(--border); }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-size: 15px; font-weight: 600; color: var(--dark); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--border); text-transform: lowercase; }
+
+/* PAGE HEADER */
+.page-header { padding: 52px 48px 0; }
+.page-eyebrow { font-size: 11px; font-weight: 700; color: var(--red); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 12px; display: block; }
+.page-header h1 { font-size: clamp(34px, 3.5vw, 40px); font-weight: 800; color: var(--dark); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 12px; text-transform: lowercase; }
+.page-header p { font-size: 15px; color: var(--muted); max-width: 560px; line-height: 1.7; padding-bottom: 28px; }
+
+/* FILTER BAR */
+.filter-bar { padding: 12px 48px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; background: var(--white); position: sticky; top: 72px; z-index: 50; }
+.filter-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; width: 100%; }
+.filter-label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0.06em; text-transform: lowercase; margin-right: 4px; white-space: nowrap; }
+.filter-btn { padding: 6px 14px; font-size: 13px; font-weight: 600; border: 1.5px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s; font-family: var(--font); border-radius: 8px; white-space: nowrap; text-transform: lowercase; }
+.filter-btn:hover { border-color: var(--dark); color: var(--dark); }
+.filter-btn.active { background: var(--red); border-color: var(--red); color: var(--white); }
+.filter-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.filter-count { font-size: 12px; color: var(--muted); font-weight: 600; white-space: nowrap; }
+.search-wrap { position: relative; }
+.search-wrap input { padding: 7px 12px 7px 30px; border: 1.5px solid var(--border); outline: none; font-size: 13px; font-family: var(--font); color: var(--body); width: 200px; border-radius: 8px; transition: border-color 0.2s; }
+.search-wrap input:focus { border-color: var(--red); }
+.search-wrap::before { content: '⌕'; position: absolute; left: 9px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 15px; pointer-events: none; }
+
+/* CARDS */
+.cards-section { padding: 32px 48px 64px; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.card { background: var(--white); padding: 24px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 8px; border: 1.5px solid var(--border); border-radius: 12px; transition: all 0.2s; }
+.card:hover { border-color: var(--red); box-shadow: 0 4px 16px rgba(178,16,16,0.08); transform: translateY(-2px); }
+.card-cat { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: lowercase; color: var(--red); }
+.card-title { font-size: 17px; font-weight: 700; color: var(--dark); line-height: 1.3; }
+.card-desc { font-size: 13px; color: var(--muted); line-height: 1.65; flex: 1; }
+.card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.card-tag { font-size: 11px; color: var(--muted); background: var(--light); padding: 3px 8px; font-weight: 600; border-radius: 3px; }
+.card-link { margin-top: 10px; font-size: 13px; font-weight: 700; color: var(--red); }
+.badge { font-size: 11px; font-weight: 700; text-transform: lowercase; padding: 3px 8px; display: inline-block; border-radius: 3px; }
+.badge-type { background: var(--light); color: var(--muted); }
+.badge-both { background: rgba(54,61,63,0.07); color: var(--dark); }
+.badge-nfp { background: rgba(178,16,16,0.08); color: var(--red); }
+.badge-fp { background: rgba(100,100,100,0.08); color: var(--muted); }
+.badge-free { color: #166534; background: rgba(22,101,52,0.08); }
+.badge-discount { color: var(--red); background: rgba(178,16,16,0.08); }
+.pricing { font-size: 11px; font-weight: 700; text-transform: lowercase; padding: 3px 8px; display: inline-block; border-radius: 3px; width: fit-content; }
+
+/* TABLE */
+.opp-table-wrap { padding: 0 48px 64px; }
+.opp-table { width: 100%; border-collapse: collapse; border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; }
+.opp-table thead { position: sticky; top: calc(72px + 90px); z-index: 40; }
+.opp-table th { padding: 12px 14px; font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0.06em; text-transform: lowercase; border-bottom: 2px solid var(--border); text-align: left; white-space: nowrap; background: var(--light); }
+.opp-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); font-size: 14px; vertical-align: middle; }
+.opp-table tbody tr { cursor: pointer; transition: background 0.15s; }
+.opp-table tbody tr:hover { background: var(--light); }
+.opp-table tbody tr:last-child td { border-bottom: none; }
+.opp-name { font-weight: 700; color: var(--dark); }
+.opp-name a { text-decoration: none; color: inherit; }
+.opp-name a:hover { color: var(--red); }
+.tag-pill { font-size: 11px; color: var(--muted); background: var(--light); padding: 2px 7px; display: inline-block; margin: 1px; border-radius: 3px; font-weight: 600; }
+.apply-link { font-size: 13px; font-weight: 700; color: var(--red); text-decoration: none; white-space: nowrap; }
+.apply-link:hover { color: var(--red-dark); }
+
+/* STATES */
+.loading-state, .empty-state { padding: 64px 48px; text-align: center; color: var(--muted); font-size: 15px; }
+.empty-state h3 { font-size: 17px; margin-bottom: 8px; color: var(--dark); font-weight: 700; }
+
+/* BUTTONS */
+.btn-primary { background: var(--red); color: var(--white); padding: 0 24px; height: 45px; font-size: 13px; font-weight: 600; text-decoration: none; border: 1.5px solid var(--red); cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; border-radius: 8px; font-family: var(--font); text-transform: lowercase; }
+.btn-primary:hover { background: var(--red-dark); border-color: var(--red-dark); }
+.btn-ghost { background: transparent; color: var(--dark); padding: 0 24px; height: 45px; font-size: 13px; font-weight: 600; text-decoration: none; border: 1.5px solid var(--dark); cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; border-radius: 8px; font-family: var(--font); text-transform: lowercase; }
+.btn-ghost:hover { border-color: var(--red); color: var(--red); }
+
+/* FOOTER — matches thedelta.org.in exactly */
+footer { background: #1c1c1c; color: rgba(255,255,255,0.75); padding: 60px 48px 32px; }
+.footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand { display: flex; flex-direction: column; gap: 16px; }
+.footer-logo { display: inline-block; text-decoration: none; }
+.footer-logo img { height: 28px; width: auto; filter: brightness(0) invert(1); opacity: 0.9; }
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 260px; }
+.footer-col h4 { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; font-weight: 500; }
+.footer-col a:hover { color: var(--white); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.25); font-weight: 500; }
+
+/* SUPPORT PAGE */
+.section-label { padding: 32px 48px 12px; font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0.1em; text-transform: lowercase; }
+.download-btn { font-size: 13px; font-weight: 700; color: var(--red); text-decoration: none; transition: color 0.2s; }
+.download-btn:hover { color: var(--red-dark); }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav, .mobile-nav, footer { padding-left: 24px; padding-right: 24px; }
+  .nav-links { display: none; } .hamburger { display: block; }
+  .page-header, .filter-bar, .cards-section, .opp-table-wrap, .loading-state, .empty-state, .section-label { padding-left: 24px; padding-right: 24px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .col-region, .col-amount { display: none; }
+}
+@media (max-width: 600px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .col-tags { display: none; }
+  .search-wrap input { width: 130px; }
+}
+.card-footer-row{margin-top:12px;display:flex;align-items:center;justify-content:flex-end}</style>
+</head>
+<body>
+
+<a href="https://thedelta.org.in/" target="_blank" rel="noopener noreferrer" class="ticker-banner">
+  <div class="ticker-track">&nbsp;&nbsp;&nbsp;✦ check out our latest funding friday edition &nbsp;&nbsp;&nbsp;✦ check out our latest funding friday edition &nbsp;&nbsp;&nbsp;✦ check out our latest funding friday edition &nbsp;&nbsp;&nbsp;✦ check out our latest funding friday edition</div>
+</a>
+
+<nav role="navigation">
+  <a href="https://thedelta.org.in/" target="_blank" rel="noopener noreferrer" class="nav-logo"><img src="delta-brand.webp" alt="the^delta" style="height:32px;width:auto;"></a>
+  <div class="nav-links">
+    <a href="index.html">about</a><a href="opportunities.html">funding</a>
+    <a href="research.html">research</a><a href="support.html" class="active">operations</a>
+    <a href="tools.html">tech & ai</a>
+    <a href="index.html#newsletter" class="nav-cta">funding updates</a>
+  </div>
+  <button class="hamburger" onclick="document.getElementById('mnav').classList.toggle('open')"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mnav">
+  <a href="index.html">about</a><a href="opportunities.html">funding</a>
+  <a href="research.html">research</a><a href="support.html">operations</a>
+  <a href="tools.html">tech & ai</a><a href="index.html#newsletter">funding updates</a>
+</div>
+
+<header class="page-header">
+  <span class="page-eyebrow">toolkit · operations</span>
+  <h1>build a stronger operational core.</h1>
+  <p>Ready-to-use policies, sample reports, and templates to strengthen governance, compliance, and operational capacity — so your team can focus on programme delivery.</p>
+</header>
+
+<main>
+
+  <div class="section-label">policies</div>
+  <section class="cards-section" style="padding-top:8px">
+    <div class="cards-grid" role="list">
+
+      <div class="card" role="listitem">
+        <div class="card-cat">policy</div>
+        <div class="card-title">Anti-Harassment Policy</div>
+        <div class="card-desc">A formal organisational policy on harassment prevention — covering definitions, reporting procedures, investigation process, and consequences.</div>
+        <div class="card-tags"><span class="card-tag">HR</span><span class="card-tag">Governance</span><span class="card-tag">Compliance</span></div>
+        <div class="card-footer-row"><a href="https://drive.google.com/file/d/18MOt2RfwANDWTMNXw0cFmFnsQffSTQdt/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="download-btn">download →</a></div>
+      </div>
+
+      <div class="card" role="listitem">
+        <div class="card-cat">policy</div>
+        <div class="card-title">Information Technology Policy</div>
+        <div class="card-desc">An IT usage policy covering acceptable use of organisational devices, software, data handling, password management, and cybersecurity responsibilities.</div>
+        <div class="card-tags"><span class="card-tag">IT</span><span class="card-tag">Security</span><span class="card-tag">Governance</span></div>
+        <div class="card-footer-row"><a href="https://drive.google.com/file/d/1ZWL0HoGrd_fiuNKqiYYgRUOoqGpDwADt/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="download-btn">download →</a></div>
+      </div>
+
+      <div class="card" role="listitem">
+        <div class="card-cat">policy</div>
+        <div class="card-title">Prevention of Sexual Harassment Policy</div>
+        <div class="card-desc">A POSH-compliant policy template — ICC constitution, complaint procedures, inquiry process, and annual reporting under the Sexual Harassment of Women at Workplace Act, 2013.</div>
+        <div class="card-tags"><span class="card-tag">POSH</span><span class="card-tag">Legal</span><span class="card-tag">India</span></div>
+        <div class="card-footer-row"><a href="https://drive.google.com/file/d/19o9hmfP0viKs186D9i0xKyuae9l06DMm/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="download-btn">download →</a></div>
+      </div>
+
+      <div class="card" role="listitem">
+        <div class="card-cat">policy</div>
+        <div class="card-title">Separation and Exit Policy</div>
+        <div class="card-desc">A comprehensive exit policy covering resignation, termination, retirement, and redundancy — including notice periods, full and final settlement, and exit interview protocols.</div>
+        <div class="card-tags"><span class="card-tag">HR</span><span class="card-tag">Offboarding</span><span class="card-tag">Governance</span></div>
+        <div class="card-footer-row"><a href="https://drive.google.com/file/d/1IMnQENZGUD-0WWkyTqCHqGvhURcsGa7p/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="download-btn">download →</a></div>
+      </div>
+
+      <div class="card" role="listitem">
+        <div class="card-cat">policy</div>
+        <div class="card-title">Travel and Expense Reimbursement Policy</div>
+        <div class="card-desc">A clear travel and expense policy covering permissible categories, approval workflows, claim submission timelines, per diem rates, and documentation requirements.</div>
+        <div class="card-tags"><span class="card-tag">Finance</span><span class="card-tag">Operations</span><span class="card-tag">Compliance</span></div>
+        <div class="card-footer-row"><a href="https://drive.google.com/file/d/1qW-SJJLEkt8m8uu3QToqoFncjxFC88mi/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="download-btn">download →</a></div>
+      </div>
+
+      <div class="card" role="listitem">
+        <div class="card-cat">policy</div>
+        <div class="card-title">Work Hours and Leave Policy</div>
+        <div class="card-desc">A comprehensive leave policy covering casual leave, sick leave, earned leave, maternity and paternity leave, and compensatory off — aligned with Indian labour law.</div>
+        <div class="card-tags"><span class="card-tag">HR</span><span class="card-tag">Leave</span><span class="card-tag">India</span></div>
+        <div class="card-footer-row"><a href="https://drive.google.com/file/d/1XymfVGyql1Uje05yFpFbwjZqsge9Jot9/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="download-btn">download →</a></div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-label">templates & samples</div>
+  <section class="cards-section" style="padding-top:8px">
+    <div class="cards-grid" role="list">
+
+      <div class="card" role="listitem">
+        <div class="card-cat">template</div>
+        <div class="card-title">Brochure Sample</div>
+        <div class="card-desc">A professionally designed organisational brochure template — structured to communicate mission, programmes, impact, and contact information to donors and partners.</div>
+        <div class="card-tags"><span class="card-tag">Communications</span><span class="card-tag">Design</span><span class="card-tag">Outreach</span></div>
+      </div>
+
+      <div class="card" role="listitem">
+        <div class="card-cat">template</div>
+        <div class="card-title">Impact Report Sample</div>
+        <div class="card-desc">A sample impact report covering programme outcomes, financial utilisation, beneficiary stories, and forward-looking narrative — structured for institutional donors and CSR funders.</div>
+        <div class="card-tags"><span class="card-tag">Reporting</span><span class="card-tag">Donors</span><span class="card-tag">M&E</span></div>
+      </div>
+
+      <div class="card" role="listitem">
+        <div class="card-cat">template</div>
+        <div class="card-title">Project Report Sample</div>
+        <div class="card-desc">A project-level report template for documenting activities, outputs, challenges, and learnings against planned milestones — for internal reviews and funder submissions.</div>
+        <div class="card-tags"><span class="card-tag">Reporting</span><span class="card-tag">Projects</span><span class="card-tag">M&E</span></div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo" style="background:#363d3f;font-family:'Nunito Sans',sans-serif;">
+  <div style="max-width:1200px;margin:0 auto;padding:32px 48px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <a href="https://thedelta.org.in/" target="_blank" rel="noopener noreferrer" style="display:inline-block;text-decoration:none;">
+        <img src="https://thedelta.org.in/wp-content/uploads/2025/05/bnw-logo-1024x245.webp" alt="the^delta" style="height:30px;width:auto;">
+      </a>
+      <span style="color:rgba(255,255,255,0.45);font-size:13px;font-weight:400;">building resilient livelihoods for all</span>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
+      <a href="https://thedelta.org.in/prize/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">prize</a>
+      <a href="https://thedelta.org.in/incubator/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">incubator</a>
+      <a href="https://thedelta.org.in/accelerator/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">accelerator</a>
+      <a href="https://thedelta.org.in/pragati/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">pragati</a>
+      <a href="https://thedelta.org.in/portfolio/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">portfolio</a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="https://www.linkedin.com/company/the-delta-org/posts/?feedView=all" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;text-decoration:none;">follow us on</a>
+      <a href="https://www.linkedin.com/company/the-delta-org/posts/?feedView=all" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;">
+        <svg viewBox="0 0 448 512" width="18" height="18" fill="rgba(255,255,255,0.7)" xmlns="http://www.w3.org/2000/svg"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
+      </a>
+    </div>
+
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,0.1);padding:16px 48px;text-align:center;">
+    <p style="font-size:12px;color:rgba(255,255,255,0.3);font-weight:400;margin:0;">© AIC Ncore Developmental Impact Foundation</p>
+  </div>
+</footer>
+<script>document.getElementById('mnav').querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mnav').classList.remove('open')));</script>
+</body>
+</html>
