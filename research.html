@@ -254,7 +254,6 @@ function renderRes(){
   if(!filtered.length){grid.innerHTML='';empty.style.display='block';return;}
   empty.style.display='none';
   grid.innerHTML=filtered.map(r=>`<a href="${r.url}" target="_blank" rel="noopener noreferrer" class="card" role="listitem">
-    <span class="badge badge-type">${r.category}</span>
     <div class="card-title">${r.title}</div>
     <div class="card-desc">${r.desc}</div>
     <div class="card-tags">${r.tags.map(t=>'<span class="card-tag">'+t+'</span>').join('')}</div>
