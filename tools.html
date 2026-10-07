@@ -175,19 +175,20 @@ footer { background: #1c1c1c; color: rgba(255,255,255,0.75); padding: 60px 48px 
 </div>
 
 <header class="page-header">
-  <h1>tools built for lean, high-impact teams</h1>
+  <span class="page-eyebrow">stack · technology</span>
+  <h1>tools built for lean, high-impact teams.</h1>
   <p>Concessional software and AI tools — vetted for nonprofit and small-team use, from project management to impact measurement.</p>
 </header>
 
 <div class="filter-bar">
   <button class="filter-btn active" onclick="setFilter('All',this)">all</button>
-  <button class="filter-btn" onclick="setFilter('AI & Automation',this)">AI</button>
+  <button class="filter-btn" onclick="setFilter('AI & Automation',this)">ai</button>
   <button class="filter-btn" onclick="setFilter('Project Management',this)">projects</button>
   <button class="filter-btn" onclick="setFilter('Data & M&E',this)">data</button>
   <button class="filter-btn" onclick="setFilter('Communications',this)">comms</button>
   <button class="filter-btn" onclick="setFilter('Finance',this)">finance</button>
   <button class="filter-btn" onclick="setFilter('Design',this)">design</button>
-  <button class="filter-btn" onclick="setFilter('AI & Agents',this)">AI & agents</button>
+  <button class="filter-btn" onclick="setFilter('AI & Agents',this)">ai & agents</button>
   <button class="filter-btn" onclick="setFilter('Build & Dev',this)">build & dev</button>
   <button class="filter-btn" onclick="setFilter('Open Data · India',this)">open data</button>
   <button class="filter-btn" onclick="setFilter('Privacy',this)">privacy</button>
@@ -237,23 +238,23 @@ footer { background: #1c1c1c; color: rgba(255,255,255,0.75); padding: 60px 48px 
 
 <script>
 const TOOLS=[
-  {name:"Claude (Anthropic)",cat:"AI & Automation",pricing:"Discount",desc:"Advanced AI assistant for writing, analysis, research synthesis, and operational tasks. Nonprofit discount via API.",tags:["AI","Writing","Research"],url:"https://anthropic.com"},
-  {name:"ChatGPT (OpenAI)",cat:"AI & Automation",pricing:"Discount",desc:"AI assistant for drafting communications, analysing data, summarising reports. Nonprofit discount available.",tags:["AI","Writing","Automation"],url:"https://openai.com"},
-  {name:"Google Gemini",cat:"AI & Automation",pricing:"Free",desc:"Google's AI assistant integrated with Workspace — useful for drafting documents, summarising research, and data analysis.",tags:["AI","Google","Automation"],url:"https://gemini.google.com"},
-  {name:"Perplexity AI",cat:"AI & Automation",pricing:"Free",desc:"AI-powered research assistant that cites sources — useful for rapid landscape research, policy analysis, and sector deep-dives.",tags:["AI","Research","Search"],url:"https://perplexity.ai"},
-  {name:"Notion AI",cat:"AI & Automation",pricing:"Paid",desc:"AI writing and knowledge management built into Notion — useful for maintaining internal wikis and drafting operational documents.",tags:["AI","Knowledge","Writing"],url:"https://notion.so"},
-  {name:"Make (Integromat)",cat:"AI & Automation",pricing:"Free",desc:"No-code workflow automation platform for connecting apps and automating data flows.",tags:["Automation","No-code","Workflows"],url:"https://make.com"},
-  {name:"Zapier",cat:"AI & Automation",pricing:"Discount",desc:"Automation platform connecting 6,000+ apps. Nonprofit discount available.",tags:["Automation","Integration","No-code"],url:"https://zapier.com"},
-  {name:"Gooey.AI",cat:"AI & Automation",pricing:"Free",desc:"Pro bono AI tools for social sector organisations — document analysis, bulk processing, and WhatsApp automation.",tags:["AI","Pro Bono","WhatsApp"],url:"https://gooey.ai"},
-  {name:"Otter.ai",cat:"AI & Automation",pricing:"Free",desc:"AI-powered transcription and meeting notes. Useful for transcribing interviews, focus groups, and board meetings.",tags:["Transcription","AI","Meetings"],url:"https://otter.ai"},
-  {name:"Glide",cat:"AI & Automation",pricing:"Discount",desc:"No-code app builder that turns spreadsheets into mobile apps. Useful for building beneficiary-facing tools.",tags:["No-code","Apps","Mobile"],url:"https://glideapps.com"},
-  {name:"Power Automate",cat:"AI & Automation",pricing:"Discount",desc:"Workflow automation within Microsoft ecosystem. Included in Microsoft 365 for Nonprofits.",tags:["Automation","Microsoft","Workflows"],url:"https://powerautomate.microsoft.com"},
+  {name:"Claude (Anthropic)",cat:"AI & Agents",pricing:"Discount",desc:"Advanced AI assistant for writing, analysis, research synthesis, and operational tasks. Nonprofit discount via API.",tags:["AI","Writing","Research"],url:"https://anthropic.com"},
+  {name:"ChatGPT (OpenAI)",cat:"AI & Agents",pricing:"Discount",desc:"AI assistant for drafting communications, analysing data, summarising reports. Nonprofit discount available.",tags:["AI","Writing","Automation"],url:"https://openai.com"},
+  {name:"Google Gemini",cat:"AI & Agents",pricing:"Free",desc:"Google's AI assistant integrated with Workspace — useful for drafting documents, summarising research, and data analysis.",tags:["AI","Google","Automation"],url:"https://gemini.google.com"},
+  {name:"Perplexity AI",cat:"AI & Agents",pricing:"Free",desc:"AI-powered research assistant that cites sources — useful for rapid landscape research, policy analysis, and sector deep-dives.",tags:["AI","Research","Search"],url:"https://perplexity.ai"},
+  {name:"Notion AI",cat:"AI & Agents",pricing:"Paid",desc:"AI writing and knowledge management built into Notion — useful for maintaining internal wikis and drafting operational documents.",tags:["AI","Knowledge","Writing"],url:"https://notion.so"},
+  {name:"Make (Integromat)",cat:"AI & Agents",pricing:"Free",desc:"No-code workflow automation platform for connecting apps and automating data flows.",tags:["Automation","No-code","Workflows"],url:"https://make.com"},
+  {name:"Zapier",cat:"AI & Agents",pricing:"Discount",desc:"Automation platform connecting 6,000+ apps. Nonprofit discount available.",tags:["Automation","Integration","No-code"],url:"https://zapier.com"},
+  {name:"Gooey.AI",cat:"AI & Agents",pricing:"Free",desc:"Pro bono AI tools for social sector organisations — document analysis, bulk processing, and WhatsApp automation.",tags:["AI","Pro Bono","WhatsApp"],url:"https://gooey.ai"},
+  {name:"Otter.ai",cat:"AI & Agents",pricing:"Free",desc:"AI-powered transcription and meeting notes. Useful for transcribing interviews, focus groups, and board meetings.",tags:["Transcription","AI","Meetings"],url:"https://otter.ai"},
+  {name:"Glide",cat:"AI & Agents",pricing:"Discount",desc:"No-code app builder that turns spreadsheets into mobile apps. Useful for building beneficiary-facing tools.",tags:["No-code","Apps","Mobile"],url:"https://glideapps.com"},
+  {name:"Power Automate",cat:"AI & Agents",pricing:"Discount",desc:"Workflow automation within Microsoft ecosystem. Included in Microsoft 365 for Nonprofits.",tags:["Automation","Microsoft","Workflows"],url:"https://powerautomate.microsoft.com"},
   {name:"Asana",cat:"Project Management",pricing:"Discount",desc:"Project and task management platform. 50% nonprofit discount available.",tags:["Projects","Tasks","Teams"],url:"https://asana.com"},
   {name:"Notion",cat:"Project Management",pricing:"Discount",desc:"All-in-one workspace for notes, databases, and project management. Nonprofit discount available.",tags:["Projects","Knowledge","Databases"],url:"https://notion.so"},
   {name:"Trello",cat:"Project Management",pricing:"Free",desc:"Visual Kanban-based project management. Free plan suitable for small teams.",tags:["Projects","Kanban","Visual"],url:"https://trello.com"},
   {name:"Monday.com",cat:"Project Management",pricing:"Discount",desc:"Work management platform with strong visual reporting. Nonprofit discount available.",tags:["Projects","Reporting","Teams"],url:"https://monday.com"},
   {name:"ClickUp",cat:"Project Management",pricing:"Free",desc:"Feature-rich project management tool with a generous free plan.",tags:["Projects","Tasks","Free"],url:"https://clickup.com"},
-  {name:"Basecamp",cat:"Project Management",pricing:"Free",desc:"Free for nonprofits. Simple project and team communication tool.",tags:["Projects","Communication","Free"],url:"https://basecamp.com"},
+  {name:"Basecamp",cat:"Project Management",pricing:"Discount",desc:"Simple project and team communication tool. Limited free plan available (1 project, 20 users). 10% nonprofit discount on paid plans ($15/user/month).",tags:["Projects","Communication","Free"],url:"https://basecamp.com"},
   {name:"Airtable",cat:"Project Management",pricing:"Discount",desc:"Spreadsheet-database hybrid for managing complex data — beneficiary tracking, grant databases, programme monitoring.",tags:["Database","Projects","Data"],url:"https://airtable.com"},
   {name:"Miro",cat:"Project Management",pricing:"Discount",desc:"Online whiteboard for strategy workshops, theory of change development, and distributed team collaboration.",tags:["Whiteboard","Strategy","Collaboration"],url:"https://miro.com"},
   {name:"Zoho One for Nonprofits",cat:"Project Management",pricing:"Discount",desc:"Suite of 45+ business apps at nonprofit pricing — CRM, project management, accounting, and HR.",tags:["Suite","CRM","Finance"],url:"https://zoho.com/nonprofits"},
@@ -269,7 +270,7 @@ const TOOLS=[
   {name:"SurveyCTO",cat:"Data & M&E",pricing:"Paid",desc:"Professional-grade mobile data collection with strong offline capabilities and data quality controls.",tags:["Data Collection","Research","Quality"],url:"https://surveycto.com"},
   {name:"Salesforce Nonprofit Success Pack",cat:"Data & M&E",pricing:"Free",desc:"10 free Salesforce licences for eligible nonprofits through the Power of Us Programme.",tags:["CRM","Donors","Salesforce"],url:"https://www.salesforce.org/nonprofit"},
   {name:"Typeform",cat:"Data & M&E",pricing:"Discount",desc:"Conversational form and survey platform — beneficiary feedback, programme applications, and stakeholder surveys.",tags:["Forms","Surveys","Data"],url:"https://typeform.com"},
-  {name:"Mailchimp",cat:"Communications",pricing:"Free",desc:"Email marketing platform with a free plan for up to 500 contacts.",tags:["Email","Marketing","Newsletter"],url:"https://mailchimp.com"},
+  {name:"Mailchimp",cat:"Communications",pricing:"Paid",desc:"Email marketing platform — free plan now heavily restricted (250 contacts, 500 emails/month). Paid plans from $13/month. 15% nonprofit discount available.",tags:["Email","Marketing","Newsletter"],url:"https://mailchimp.com"},
   {name:"Brevo (Sendinblue)",cat:"Communications",pricing:"Free",desc:"Email and SMS marketing platform with a generous free plan — WhatsApp integration included.",tags:["Email","SMS","WhatsApp"],url:"https://brevo.com"},
   {name:"Buffer",cat:"Communications",pricing:"Free",desc:"Social media scheduling and analytics. Free plan for up to 3 channels.",tags:["Social Media","Scheduling","Analytics"],url:"https://buffer.com"},
   {name:"Hootsuite",cat:"Communications",pricing:"Discount",desc:"Social media management platform. Nonprofit discount available.",tags:["Social Media","Management","Teams"],url:"https://hootsuite.com"},
@@ -277,9 +278,9 @@ const TOOLS=[
   {name:"Google Workspace for Nonprofits",cat:"Communications",pricing:"Free",desc:"Full Google Workspace free for eligible nonprofits — Gmail, Drive, Docs, Meet, Calendar.",tags:["Productivity","Email","Collaboration"],url:"https://workspace.google.com/nonprofits"},
   {name:"Microsoft 365 for Nonprofits",cat:"Communications",pricing:"Discount",desc:"Microsoft Office suite at deeply discounted rates for eligible nonprofits.",tags:["Productivity","Microsoft","Collaboration"],url:"https://www.microsoft.com/en-in/nonprofits"},
   {name:"Slack",cat:"Communications",pricing:"Discount",desc:"Team messaging platform. Pro plan discount for nonprofits.",tags:["Messaging","Teams","Communication"],url:"https://slack.com"},
-  {name:"WhatsApp Business API",cat:"Communications",pricing:"Free",desc:"Essential for beneficiary communication in India — automated and bulk messaging for programme delivery.",tags:["WhatsApp","Messaging","India"],url:"https://business.whatsapp.com"},
+  {name:"WhatsApp Business API",cat:"Communications",pricing:"Paid",desc:"Essential for beneficiary communication in India. API access is free but outbound template messages are charged per message. Inbound and service-window replies are free. Pricing depends on message volume and country.",tags:["WhatsApp","Messaging","India"],url:"https://business.whatsapp.com"},
   {name:"HubSpot for Nonprofits",cat:"Communications",pricing:"Discount",desc:"CRM, email marketing, and content management. 40% discount for nonprofits.",tags:["CRM","Email","Marketing"],url:"https://hubspot.com"},
-  {name:"Loom",cat:"Communications",pricing:"Free",desc:"Async video messaging. Free for nonprofits. Useful for internal training and remote team communication.",tags:["Video","Async","Communication"],url:"https://loom.com"},
+  {name:"Loom",cat:"Communications",pricing:"Discount",desc:"Async video messaging platform. Free starter plan available (25 videos, 5-min limit). 75% nonprofit discount on paid plans. Useful for internal training and remote team communication.",tags:["Video","Async","Communication"],url:"https://loom.com"},
   {name:"Calendly",cat:"Communications",pricing:"Free",desc:"Meeting scheduling automation. Free plan for individuals.",tags:["Scheduling","Meetings","Automation"],url:"https://calendly.com"},
   {name:"Grammarly Business",cat:"Communications",pricing:"Discount",desc:"AI writing assistant for grammar, clarity, and tone. Useful for donor reports and grant proposals.",tags:["Writing","AI","Communications"],url:"https://grammarly.com"},
   {name:"Freshdesk",cat:"Communications",pricing:"Free",desc:"Customer support platform with a free plan. Useful for managing beneficiary inquiries and helpline operations.",tags:["Support","Helpdesk","Free"],url:"https://freshdesk.com"},
@@ -304,7 +305,9 @@ const TOOLS=[
   {name:"DataMeet",cat:"Open Data · India",pricing:"Free",desc:"India's open data community — datasets, maps, and tools covering health, education, governance, and more.",tags:["Data","India","Community"],url:"https://datameet.org/"},
   {name:"BharatViz",cat:"Open Data · India",pricing:"Free",desc:"No-code India map visualisations using open data — handy for district-level programme mapping, proposals, and impact reports.",tags:["Data","Maps","India"],url:"https://bharatviz.org/"},
   {name:"Diagram Chasing",cat:"Open Data · India",pricing:"Free",desc:"Open datasets and no-code visualisation tools focused on India — useful for sector analysis and data storytelling.",tags:["Data","Visualisation","India"],url:"https://diagramchasing.fun/"},
-  {name:"Yoti",cat:"Privacy",pricing:"Paid",desc:"Privacy-focused age and identity verification via face scan. Useful for organisations running programmes that require verified beneficiary identity.",tags:["Privacy","Identity","Verification"],url:"https://www.yoti.com/"}
+  {name:"Yoti",cat:"Privacy",pricing:"Paid",desc:"Privacy-focused age and identity verification via face scan. Useful for organisations running programmes that require verified beneficiary identity.",tags:["Privacy","Identity","Verification"],url:"https://www.yoti.com/"},
+  {name:"Koyal (Adalat AI × NVIDIA)",cat:"AI & Agents",pricing:"Free",desc:"Open-source family of speech recognition models for Hindi, Kannada, Malayalam and Telugu — built to produce punctuation and formatted numerals. Brings speech recognition closer to real-world needs for India's multilingual programmes.",tags:["AI","Speech","India","Open Source"],url:"https://www.adalat.ai/blog/tech/koyal-model-release"},
+  {name:"UCT Tracker (Project DEEP)",cat:"Open Data · India",pricing:"Free",desc:"A live tracker of Unconditional Cash Transfers (UCTs) across India — useful for researchers and policymakers working on welfare delivery and decision-making.",tags:["Data","India","Cash Transfers","Research"],url:"https://shorturl.at/VW5lF"}
 ];
 
 let activeFilter='All';
