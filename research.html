@@ -171,7 +171,7 @@ footer { background: #1c1c1c; color: rgba(255,255,255,0.75); padding: 60px 48px 
   <button class="filter-btn" onclick="setFilter('Agriculture & Water',this)">agwater</button>
   <button class="filter-btn" onclick="setFilter('Funding & Grants',this)">funding</button>
   <button class="filter-btn" onclick="setFilter('M&E',this)">m&e</button>
-  <button class="filter-btn" onclick="setFilter('Operations',this)">operations</button>
+  
   <button class="filter-btn" onclick="setFilter('Tech & AI',this)">tech & AI</button>
   <button class="filter-btn" onclick="setFilter('Climate',this)">climate</button>
   <div class="filter-right">
@@ -229,9 +229,6 @@ const RESEARCH = [
   {num:"10",title:"Ten Nonprofit Funding Models",category:"Funding & Grants",desc:"A breakdown of ten funding models used by sustainable nonprofits, with real examples.",tags:["Nonprofits","Funding Models","SSIR"],url:"https://ssir.org/articles/entry/ten_nonprofit_funding_models"},
   {num:"11",title:"MyScheme: Central Government Schemes Directory",category:"Funding & Grants",desc:"The Government of India's directory of schemes — searchable by sector, state, and beneficiary.",tags:["India","Government","Schemes"],url:"https://www.myscheme.gov.in/"},
   {num:"12",title:"Fundraising Strategies for Nonprofits",category:"Funding & Grants",desc:"An overview of fundraising approaches for nonprofits — donors, CSR, government, and institutions.",tags:["Fundraising","Strategy","Nonprofits"],url:"https://orrgroup.com/fundraising-strategies-for-nonprofits/"},
-  {num:"13",title:"A Vendor Database for Indian Nonprofits",category:"Operations",desc:"A crowd-sourced list of auditors, lawyers, IT providers, and agencies that work with Indian nonprofits.",tags:["Vendors","Nonprofits","India"],url:"https://idronline.org/vendor-database-for-nonprofits/"},
-  {num:"14",title:"Social Media for Nonprofits",category:"Operations",desc:"A guide to social media for impact organisations — which platforms to use and how.",tags:["Communications","Social Media","Digital"],url:"https://page.techsoup.org/social-media-for-nonprofits"},
-  {num:"15",title:"Compliance Calendar for Nonprofits in India",category:"Operations",desc:"A month-by-month calendar of statutory filings and deadlines for Indian nonprofits.",tags:["Compliance","Calendar","India"],url:"https://pattic.org/compliance-calendar/"},
   {num:"16",title:"Open Source Tools for Nonprofits",category:"Tech & AI",desc:"A list of free, open-source tools nonprofits can use for CRM, project management, and communications.",tags:["Tech","Open Source","Nonprofits"],url:"https://zammad.com/en/blog/open-source-tools-ngo"},
   {num:"17",title:"Mulago Foundation: Resources and Frameworks",category:"Funding & Grants",desc:"Writing and frameworks from Mulago Foundation on how to design programmes that scale.",tags:["Scale","Design","Mulago"],url:"https://www.mulagofoundation.org/our-writing"},
   {num:"18",title:"Tech Nonprofit Playbooks — Fast Forward",category:"Tech & AI",desc:"A playbook for tech-focused nonprofits on building product, fundraising, and growing a team.",tags:["Tech","Nonprofits","Playbook"],url:"https://www.ffwd.org/blog/the-playbook-chapter-1"},
@@ -242,8 +239,6 @@ const RESEARCH = [
   {num:"25",title:"Dasra Research & Insights Hub",category:"Funding & Grants",desc:"Dasra's library of research on India's social sector — philanthropy trends, sector analyses, and more.",tags:["India","Research","Philanthropy"],url:"https://dasra.org/what-we-do/research-and-insights"},
   {num:"26",title:"Finding Your Funding Model",category:"Funding & Grants",desc:"A guide to figuring out the right funding model for your nonprofit and how to build towards it.",tags:["Funding Models","Strategy","SSIR"],url:"https://ssir.org/articles/entry/finding_your_funding_model"},
   {num:"27",title:"UNDP Digital Library: Development Finance Resources",category:"Funding & Grants",desc:"UNDP's library of publications on development finance — blended finance, impact investment, and SDG funding.",tags:["UNDP","Development Finance","SDGs"],url:"https://www.undp.org/un-agency-service-offering/resources-library"},
-  ,{num:"28",title:"PBL Toolkit — Mantra4Change",category:"Operations",desc:"A project-based learning toolkit for educators and programme teams — structured frameworks for designing and facilitating PBL experiences in the Indian context.",tags:["Education","Toolkit","PBL"],url:"https://drive.google.com/file/d/1Tlpsp66jQHac1VpAGhHB4BwvPnbFYVuq/view?usp=sharing"}
-  ,{num:"29",title:"District Design Toolkit — Mantra4Change",category:"Operations",desc:"A toolkit for designing district-level education interventions — covering needs assessment, stakeholder engagement, programme design, and implementation planning.",tags:["Education","Design","India"],url:"https://drive.google.com/file/d/1EMusHNhwPkrRWdUCpMvT3IlvGOrv6ul1/view?usp=sharing"}
 ];
 let activeFilter='All';
 function setFilter(f,btn){activeFilter=f;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderRes();}
@@ -260,10 +255,7 @@ function renderRes(){
   if(!filtered.length){grid.innerHTML='';empty.style.display='block';return;}
   empty.style.display='none';
   grid.innerHTML=filtered.map(r=>`<a href="${r.url}" target="_blank" rel="noopener noreferrer" class="card" role="listitem">
-    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
-      <span style="font-size:11px;font-weight:700;color:var(--red)">${r.num}</span>
-      <span class="badge badge-type">${r.category}</span>
-    </div>
+    <span class="badge badge-type">${r.category}</span>
     <div class="card-title">${r.title}</div>
     <div class="card-desc">${r.desc}</div>
     <div class="card-tags">${r.tags.map(t=>'<span class="card-tag">'+t+'</span>').join('')}</div>
