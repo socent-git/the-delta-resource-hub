@@ -191,7 +191,6 @@ footer { background: #1c1c1c; color: rgba(255,255,255,0.75); padding: 60px 48px 
   <button class="filter-btn" onclick="setFilter('Build & Dev',this)">build & dev</button>
   <button class="filter-btn" onclick="setFilter('Open Data · India',this)">open data</button>
   <button class="filter-btn" onclick="setFilter('Privacy',this)">privacy</button>
-  <button class="filter-btn" onclick="setFilter('Nonprofit Access',this)">nonprofit access</button>
   <div class="filter-right">
     <div class="search-wrap"><input type="text" id="tool-search" placeholder="search…" oninput="renderTools()"></div>
     <span class="filter-count" id="tool-count">— of —</span>
@@ -308,8 +307,6 @@ const TOOLS=[
   {name:"Yoti",cat:"Privacy",pricing:"Paid",desc:"Privacy-focused age and identity verification via face scan. Useful for organisations running programmes that require verified beneficiary identity.",tags:["Privacy","Identity","Verification"],url:"https://www.yoti.com/"},
   {name:"Koyal (Adalat AI × NVIDIA)",cat:"AI & Agents",pricing:"Free",desc:"Open-source family of speech recognition models for Hindi, Kannada, Malayalam and Telugu — built to produce punctuation and formatted numerals. Brings speech recognition closer to real-world needs for India's multilingual programmes.",tags:["AI","Speech","India","Open Source"],url:"https://www.adalat.ai/blog/tech/koyal-model-release"},
   {name:"UCT Tracker (Project DEEP)",cat:"Open Data · India",pricing:"Free",desc:"A live tracker of Unconditional Cash Transfers (UCTs) across India — useful for researchers and policymakers working on welfare delivery and decision-making.",tags:["Data","India","Cash Transfers","Research"],url:"https://shorturl.at/VW5lF"},
-  {name:"Goodstack (formerly Percent)",cat:"Nonprofit Access",pricing:"Free",desc:"The world's leading nonprofit verification and tech access platform — used by Google, Microsoft, Zoom, Salesforce, Atlassian, Canva, and 200+ other tech companies to verify eligibility and deliver nonprofit discounts. Register once to unlock discounts across the entire ecosystem.",tags:["Nonprofits","Discounts","Verification","Tech Access"],url:"https://goodstack.org/"}
-];
 
 let activeFilter='All';
 function setFilter(f,btn){
