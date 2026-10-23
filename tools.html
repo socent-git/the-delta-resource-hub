@@ -175,8 +175,9 @@ footer { background: #1c1c1c; color: rgba(255,255,255,0.75); padding: 60px 48px 
 </div>
 
 <header class="page-header">
-  <h1>tools built for lean, high-impact teams</h1>
-  <p>software and AI tools from project management to impact measurement.</p>
+  <span class="page-eyebrow">stack · technology</span>
+  <h1>tools built for lean, high-impact teams.</h1>
+  <p>Concessional software and AI tools — vetted for nonprofit and small-team use, from project management to impact measurement.</p>
 </header>
 
 <div class="filter-bar">
@@ -236,8 +237,7 @@ footer { background: #1c1c1c; color: rgba(255,255,255,0.75); padding: 60px 48px 
 
 <script>
 const TOOLS=[
-  {name:"Claude (Anthropic)",cat:"AI & Agents",pricing:"Discount",desc:"Advanced AI assistant for writing, analysis, research synthesis, and operational tasks. Nonprofit discount via API.",tags:["AI","Writing","Research"],url:"https://anthropic.com"},
-  {name:"ChatGPT (OpenAI)",cat:"AI & Agents",pricing:"Discount",desc:"AI assistant for drafting communications, analysing data, summarising reports. Nonprofit discount available.",tags:["AI","Writing","Automation"],url:"https://openai.com"},
+    {name:"ChatGPT (OpenAI)",cat:"AI & Agents",pricing:"Discount",desc:"AI assistant for drafting communications, analysing data, summarising reports. Nonprofit discount available.",tags:["AI","Writing","Automation"],url:"https://openai.com"},
   {name:"Google Gemini",cat:"AI & Agents",pricing:"Free",desc:"Google's AI assistant integrated with Workspace — useful for drafting documents, summarising research, and data analysis.",tags:["AI","Google","Automation"],url:"https://gemini.google.com"},
   {name:"Perplexity AI",cat:"AI & Agents",pricing:"Free",desc:"AI-powered research assistant that cites sources — useful for rapid landscape research, policy analysis, and sector deep-dives.",tags:["AI","Research","Search"],url:"https://perplexity.ai"},
   {name:"Notion AI",cat:"AI & Agents",pricing:"Paid",desc:"AI writing and knowledge management built into Notion — useful for maintaining internal wikis and drafting operational documents.",tags:["AI","Knowledge","Writing"],url:"https://notion.so"},
@@ -304,7 +304,16 @@ const TOOLS=[
   {name:"Diagram Chasing",cat:"Open Data · India",pricing:"Free",desc:"Open datasets and no-code visualisation tools focused on India — useful for sector analysis and data storytelling.",tags:["Data","Visualisation","India"],url:"https://diagramchasing.fun/"},
   {name:"Yoti",cat:"Privacy",pricing:"Paid",desc:"Privacy-focused age and identity verification via face scan. Useful for organisations running programmes that require verified beneficiary identity.",tags:["Privacy","Identity","Verification"],url:"https://www.yoti.com/"},
   {name:"Koyal (Adalat AI × NVIDIA)",cat:"AI & Agents",pricing:"Free",desc:"Open-source family of speech recognition models for Hindi, Kannada, Malayalam and Telugu — built to produce punctuation and formatted numerals. Brings speech recognition closer to real-world needs for India's multilingual programmes.",tags:["AI","Speech","India","Open Source"],url:"https://www.adalat.ai/blog/tech/koyal-model-release"},
-  {name:"UCT Tracker (Project DEEP)",cat:"Open Data · India",pricing:"Free",desc:"A live tracker of Unconditional Cash Transfers (UCTs) across India — useful for researchers and policymakers working on welfare delivery and decision-making.",tags:["Data","India","Cash Transfers","Research"],url:"https://shorturl.at/VW5lF"}
+  {name:"UCT Tracker (Project DEEP)",cat:"Open Data · India",pricing:"Free",desc:"A live tracker of Unconditional Cash Transfers (UCTs) across India — useful for researchers and policymakers working on welfare delivery and decision-making.",tags:["Data","India","Cash Transfers","Research"],url:"https://shorturl.at/VW5lF"},
+  {name:"ELEVATE (Shikshalokam)",cat:"AI & Agents",pricing:"Free",desc:"Open source platform for leadership development and mentoring at population scale — built by Shikshalokam, used by Karmayogi Bharat, Transform Schools, and Mantra4Change. Modular building blocks under MIT licence.",tags:["Open Source","Education","Mentoring","India"],url:"https://elevate.shikshalokam.org/elevate-wiki/"},
+  {name:"Jugalbandi (Agami / OpenNyAI)",cat:"AI & Agents",pricing:"Free",desc:"Open source multilingual AI assistant that helps citizens access government schemes and legal rights across 170+ programmes in 10 Indian languages. Built by Agami, recognised by Microsoft CEO Satya Nadella.",tags:["AI","Open Source","India","Languages"],url:"https://opennyai.org/"},
+  {name:"Bhashini",cat:"AI & Agents",pricing:"Free",desc:"India's national open source AI translation and speech platform — supports 36 Indian languages with automatic speech recognition. Used by nonprofits, startups, and state governments to build vernacular AI applications.",tags:["AI","Languages","Open Source","India"],url:"https://bhashini.gov.in/"},
+  {name:"AI4Bharat",cat:"AI & Agents",pricing:"Free",desc:"Open source language AI models for India, built at IIT Madras — powering tools like Jugalbandi and Koyal. The most comprehensive open source repository of Indian language models.",tags:["AI","Open Source","India","Languages"],url:"https://ai4bharat.iitm.ac.in/"},
+  {name:"Wadhwani AI KIRAN",cat:"AI & Agents",pricing:"Free",desc:"India's largest nonprofit AI institute — open source models and tools for health, agriculture, and education. Reaches 150M+ people. KIRAN is their open collaborative platform for responsible AI for social good.",tags:["AI","Open Source","India","Health"],url:"https://aiopportunity.wadhwaniai.org/"},
+  {name:"Sarvam AI",cat:"AI & Agents",pricing:"Free",desc:"Open source Indian LLMs (30B and 105B parameters) under Apache 2.0 licence — built for Indian languages and governance use cases. Selected for India's sovereign AI model initiative under IndiaAI Mission.",tags:["AI","Open Source","India","Languages"],url:"https://www.sarvam.ai/"},
+  {name:"RapidPro (UNICEF)",cat:"AI & Agents",pricing:"Free",desc:"Open source platform for building SMS, voice, WhatsApp, and USSD workflows — used by 4.5M+ people in 50 countries for beneficiary communication, data collection, and mobile service delivery.",tags:["Open Source","WhatsApp","SMS","UNICEF"],url:"https://rapidpro.io/"},
+  {name:"Ushahidi",cat:"AI & Agents",pricing:"Free",desc:"Open source crowdsourcing and crisis mapping platform — used globally for disaster response, elections monitoring, public health, and community reporting. Built by a Kenyan nonprofit, now used in 160+ countries.",tags:["Open Source","Crisis","Mapping","Data"],url:"https://www.ushahidi.com/"},
+  {name:"Evidential (Agency Fund + IDinsight)",cat:"Data & M&E",pricing:"Free",desc:"Free open source experiment engine purpose-built for nonprofits — enables organisations to run rapid randomised experiments using existing data, without needing large engineering teams.",tags:["Open Source","M&E","Experiments","RCT"],url:"https://theagencyfund.substack.com/p/evidential-a-new-experiment-engine"}
 ];
 
 let activeFilter='All';
